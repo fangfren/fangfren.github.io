@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title desc">
+  <title id="title">Practice minigame project cover</title>
+  <desc id="desc">A terminal window with a simple time travel game motif.</desc>
+  <rect width="600" height="450" fill="#16171b"/>
+  <rect x="52" y="54" width="496" height="342" rx="18" fill="#202128" stroke="#343640" stroke-width="2"/>
+  <rect x="52" y="54" width="496" height="48" rx="18" fill="#292b33"/>
+  <path d="M52 84h496v18H52z" fill="#292b33"/>
+  <circle cx="82" cy="78" r="6" fill="#ef6b73"/>
+  <circle cx="104" cy="78" r="6" fill="#f2c85b"/>
+  <circle cx="126" cy="78" r="6" fill="#66c88f"/>
+  <text x="88" y="158" fill="#f2c85b" font-family="monospace" font-size="22">$ python shiguangji.py</text>
+  <text x="88" y="202" fill="#edf0f5" font-family="monospace" font-size="20">time machine initialized...</text>
+  <path d="M98 266c0-34 27-61 61-61s61 27 61 61" fill="none" stroke="#f2c85b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M98 266h122" stroke="#f2c85b" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="159" cy="266" r="14" fill="#f2c85b"/>
+  <path d="M282 260h222" stroke="#66c88f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M282 289h176" stroke="#5e91ef" stroke-width="5" stroke-linecap="round"/>
+  <path d="M282 318h204" stroke="#ef6b73" stroke-width="5" stroke-linecap="round"/>
+  <text x="282" y="182" fill="#aeb3bf" font-family="sans-serif" font-size="19">MINI GAME / PYTHON</text>
+</svg>

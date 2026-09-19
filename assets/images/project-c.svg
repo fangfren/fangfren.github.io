@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title desc">
+  <title id="title">PracticeGit project cover</title>
+  <desc id="desc">A C language terminal and Git branch motif.</desc>
+  <rect width="600" height="450" fill="#151a1c"/>
+  <rect x="52" y="54" width="496" height="342" rx="18" fill="#1d2528" stroke="#314045" stroke-width="2"/>
+  <rect x="52" y="54" width="496" height="48" rx="18" fill="#253136"/>
+  <path d="M52 84h496v18H52z" fill="#253136"/>
+  <circle cx="82" cy="78" r="6" fill="#ef6b73"/>
+  <circle cx="104" cy="78" r="6" fill="#f2c85b"/>
+  <circle cx="126" cy="78" r="6" fill="#64cfb2"/>
+  <text x="86" y="153" fill="#64cfb2" font-family="monospace" font-size="22">$ gcc hello.c -o hello</text>
+  <text x="86" y="191" fill="#edf0f5" font-family="monospace" font-size="20">Hello, Renff Space!</text>
+  <path d="M172 267v-58M172 267c0 36 34 64 76 64h54" fill="none" stroke="#64cfb2" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="172" cy="203" r="14" fill="#64cfb2"/>
+  <circle cx="172" cy="267" r="14" fill="#64cfb2"/>
+  <circle cx="316" cy="331" r="14" fill="#64cfb2"/>
+  <text x="332" y="288" fill="#aeb3bf" font-family="monospace" font-size="34">{ }</text>
+  <text x="86" y="364" fill="#7f8a90" font-family="sans-serif" font-size="18">C FUNDAMENTALS / GIT PRACTICE</text>
+</svg>
