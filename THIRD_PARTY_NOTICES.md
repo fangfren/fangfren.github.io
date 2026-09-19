@@ -1,3 +1,18 @@
+# Third-Party Notices
+
+This repository does not declare a license for the whole project.
+
+The files below include code or design structure derived from the
+`codewithsadee/vcard-personal-portfolio` project, which is licensed under the
+MIT License:
+
+https://github.com/codewithsadee/vcard-personal-portfolio
+
+The original MIT notice is retained below because the MIT License requires it
+to be included with copies or substantial portions of the original software.
+
+---
+
 MIT License
 
 Copyright (c) 2022 codewithsadee
