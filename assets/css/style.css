@@ -225,6 +225,16 @@ article {
 
 .icon-box ion-icon { --ionicon-stroke-width: 35px; }
 
+.icon-box img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+@media (prefers-color-scheme: dark) {
+  .icon-box img[src$="email_logo.png"] { filter: invert(1); }
+}
+
 article { display: none; }
 
 article.active {
