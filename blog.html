@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Renff Space 的博客文章。">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#11151c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <title>博客文章 | Renff Space</title>
+
+  <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="article-view">
+
+  <main class="blog-article-page">
+    <nav class="blog-article-nav" aria-label="文章导航">
+      <a class="blog-article-back" href="./index.html#blog">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <span>返回博客</span>
+      </a>
+      <a class="blog-article-home" href="./index.html">Renff Space</a>
+    </nav>
+
+    <section class="blog-article-card" data-article-card>
+      <figure class="blog-article-cover" data-article-cover hidden>
+        <img src="" alt="" data-article-cover-image>
+      </figure>
+
+      <div class="blog-article-body">
+        <div class="blog-meta">
+          <span class="blog-category" data-article-category></span>
+          <span class="dot"></span>
+          <time data-article-date></time>
+          <span class="dot"></span>
+          <span data-article-reading-time></span>
+        </div>
+
+        <h1 class="blog-article-title" data-article-title></h1>
+        <p class="blog-article-summary" data-article-summary></p>
+        <div class="blog-article" data-article-content></div>
+      </div>
+    </section>
+
+    <section class="blog-article-not-found" data-article-not-found hidden>
+      <h1>没有找到这篇文章</h1>
+      <p>文章可能已经移动或删除。</p>
+      <a href="./index.html#blog">返回博客列表</a>
+    </section>
+  </main>
+
+  <script src="./assets/js/blog-posts.js"></script>
+  <script src="./assets/js/blog-article.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

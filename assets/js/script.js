@@ -64,24 +64,15 @@ const blogTimelineList = document.querySelector('[data-blog-timeline-list]');
 const blogTimelinePanel = document.querySelector('[data-blog-timeline-panel]');
 const blogTimelineToggle = document.querySelector('[data-blog-timeline-toggle]');
 const blogTimelineToggleText = document.querySelector('[data-blog-timeline-toggle-text]');
-const blogModal = document.querySelector('[data-blog-modal]');
-const blogModalScroll = document.querySelector('[data-blog-modal-scroll]');
-const blogModalCloseButton = document.querySelector('.blog-modal-close');
-const blogModalCover = document.querySelector('[data-blog-modal-cover]');
-const blogModalImage = document.querySelector('[data-blog-modal-image]');
-const blogModalCategory = document.querySelector('[data-blog-modal-category]');
-const blogModalDate = document.querySelector('[data-blog-modal-date]');
-const blogModalReadingTime = document.querySelector('[data-blog-modal-reading-time]');
-const blogModalTitle = document.querySelector('[data-blog-modal-title]');
-const blogModalSummary = document.querySelector('[data-blog-modal-summary]');
-const blogModalContent = document.querySelector('[data-blog-content]');
+const blogSearchToggle = document.querySelector('[data-blog-search-toggle]');
+const blogSearchPanel = document.querySelector('[data-blog-search-panel]');
+const blogSearchInput = document.querySelector('[data-blog-search-input]');
+const blogSearchStatus = document.querySelector('[data-blog-search-status]');
 const blogDateFormatter = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 });
-
-let lastFocusedElement = null;
 
 function formatBlogDate(dateString) {
   const date = new Date(dateString + 'T00:00:00');
@@ -104,11 +95,12 @@ function createBlogCard(post) {
   const item = document.createElement('li');
   item.className = 'blog-post-item';
 
-  const button = document.createElement('button');
-  button.className = 'blog-post-link';
-  button.type = 'button';
-  button.dataset.blogSlug = post.slug;
-  button.setAttribute('aria-label', '阅读文章：' + post.title);
+  const link = document.createElement('a');
+  link.className = 'blog-post-link';
+  link.href = './blog.html?slug=' + encodeURIComponent(post.slug);
+  link.dataset.blogSlug = post.slug;
+  link.dataset.blogTitle = post.title.toLocaleLowerCase('zh-CN');
+  link.setAttribute('aria-label', '阅读文章：' + post.title);
 
   const banner = document.createElement(post.cover ? 'figure' : 'div');
   banner.className = 'blog-banner-box';
@@ -159,8 +151,8 @@ function createBlogCard(post) {
 
   meta.append(category, dot, time);
   content.append(meta, title, summary, readMore);
-  button.append(banner, content);
-  item.appendChild(button);
+  link.append(banner, content);
+  item.appendChild(link);
 
   return item;
 }
@@ -173,6 +165,7 @@ function createBlogTimelineItem(post) {
   button.className = 'blog-timeline-button';
   button.type = 'button';
   button.dataset.blogScrollTarget = post.slug;
+  button.dataset.blogTitle = post.title.toLocaleLowerCase('zh-CN');
   button.setAttribute('aria-label', '跳转到文章：' + post.title);
 
   const marker = document.createElement('span');
@@ -227,6 +220,58 @@ function renderBlogPosts() {
   if (blogEmpty) {
     blogEmpty.hidden = blogPosts.length > 0;
   }
+
+  filterBlogPosts(blogSearchInput ? blogSearchInput.value : '');
+}
+
+function filterBlogPosts(query) {
+  const keyword = query.trim().toLocaleLowerCase('zh-CN');
+  let matches = 0;
+
+  if (blogList) {
+    Array.from(blogList.querySelectorAll('[data-blog-slug]')).forEach(function (card) {
+      const isMatch = !keyword || card.dataset.blogTitle.indexOf(keyword) !== -1;
+      card.closest('.blog-post-item').hidden = !isMatch;
+
+      if (isMatch) {
+        matches += 1;
+      }
+    });
+  }
+
+  if (blogTimelineList) {
+    Array.from(blogTimelineList.querySelectorAll('[data-blog-scroll-target]')).forEach(function (button) {
+      const isMatch = !keyword || button.dataset.blogTitle.indexOf(keyword) !== -1;
+      button.closest('.blog-timeline-item').hidden = !isMatch;
+    });
+  }
+
+  if (blogEmpty) {
+    blogEmpty.hidden = matches > 0;
+    blogEmpty.textContent = blogPosts.length === 0
+      ? '还没有发布文章。'
+      : '没有找到匹配的文章。';
+  }
+
+  if (blogSearchStatus) {
+    blogSearchStatus.textContent = keyword ? '找到 ' + matches + ' 篇文章' : '';
+  }
+}
+
+function setBlogSearchOpen(isOpen) {
+  if (!blogSearchToggle || !blogSearchPanel || !blogSearchInput) {
+    return;
+  }
+
+  blogSearchToggle.setAttribute('aria-expanded', String(isOpen));
+  blogSearchPanel.hidden = !isOpen;
+
+  if (isOpen) {
+    blogSearchInput.focus();
+  } else if (blogSearchInput.value) {
+    blogSearchInput.value = '';
+    filterBlogPosts('');
+  }
 }
 
 function setTimelineCollapsed(collapsed) {
@@ -270,79 +315,25 @@ function scrollToBlogCard(slug) {
   }, 1800);
 }
 
-function closeBlogPost(updateHash) {
-  if (!blogModal) {
-    return;
-  }
-
-  blogModal.classList.remove('active');
-  blogModal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('blog-modal-open');
-
-  if (updateHash && window.location.hash.indexOf('#blog/') === 0) {
-    history.replaceState(null, '', '#blog');
-  }
-
-  if (lastFocusedElement && document.contains(lastFocusedElement)) {
-    lastFocusedElement.focus();
-  }
+if (blogSearchToggle) {
+  blogSearchToggle.addEventListener('click', function () {
+    setBlogSearchOpen(blogSearchToggle.getAttribute('aria-expanded') !== 'true');
+  });
 }
 
-function openBlogPost(post, updateHash) {
-  if (!post || !blogModal) {
-    return;
-  }
+if (blogSearchInput) {
+  blogSearchInput.addEventListener('input', function () {
+    filterBlogPosts(this.value);
+  });
 
-  lastFocusedElement = document.activeElement;
-  blogModalCategory.textContent = post.category || 'Blog';
-  blogModalDate.dateTime = post.date;
-  blogModalDate.textContent = formatBlogDate(post.date);
-  blogModalReadingTime.textContent = post.readingTime || '';
-  blogModalTitle.textContent = post.title;
-  blogModalSummary.textContent = post.summary || '';
-  blogModalContent.innerHTML = post.content || '<p>这篇文章还没有正文。</p>';
+  blogSearchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      setBlogSearchOpen(false);
 
-  if (post.cover) {
-    blogModalImage.onerror = function () {
-      blogModalCover.hidden = true;
-    };
-    blogModalImage.src = post.cover;
-    blogModalImage.alt = post.coverAlt || post.title;
-    blogModalCover.hidden = false;
-  } else {
-    blogModalImage.onerror = null;
-    blogModalImage.removeAttribute('src');
-    blogModalImage.alt = '';
-    blogModalCover.hidden = true;
-  }
-
-  blogModal.classList.add('active');
-  blogModal.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('blog-modal-open');
-  blogModalScroll.scrollTop = 0;
-
-  if (updateHash) {
-    history.replaceState(null, '', '#blog/' + encodeURIComponent(post.slug));
-  }
-
-  if (blogModalCloseButton) {
-    blogModalCloseButton.focus();
-  }
-}
-
-if (blogList) {
-  blogList.addEventListener('click', function (event) {
-    const card = event.target.closest('[data-blog-slug]');
-
-    if (!card) {
-      return;
+      if (blogSearchToggle) {
+        blogSearchToggle.focus();
+      }
     }
-
-    const post = blogPosts.find(function (item) {
-      return item.slug === card.dataset.blogSlug;
-    });
-
-    openBlogPost(post, true);
   });
 }
 
@@ -363,31 +354,6 @@ if (blogTimelineList) {
     scrollToBlogCard(timelineButton.dataset.blogScrollTarget);
   });
 }
-
-document.querySelectorAll('[data-blog-modal-close]').forEach(function (button) {
-  button.addEventListener('click', function () {
-    closeBlogPost(true);
-  });
-});
-
-document.addEventListener('keydown', function (event) {
-  if (!blogModal || !blogModal.classList.contains('active')) {
-    return;
-  }
-
-  if (event.key === 'Escape') {
-    closeBlogPost(true);
-    return;
-  }
-
-  if (event.key === 'Tab') {
-    event.preventDefault();
-
-    if (blogModalCloseButton) {
-      blogModalCloseButton.focus();
-    }
-  }
-});
 
 const navigationLinks = document.querySelectorAll('[data-nav-link]');
 const pages = document.querySelectorAll('[data-page]');
@@ -421,33 +387,17 @@ function getRouteFromHash() {
   const hash = decodeURIComponent(window.location.hash.slice(1));
   const parts = hash.split('/');
 
-  return {
-    page: parts[0] || 'about',
-    postSlug: parts[1] || ''
-  };
+  return { page: parts[0] || 'about' };
 }
 
 function showRoute(route) {
-  const post = route.page === 'blog'
-    ? blogPosts.find(function (item) { return item.slug === route.postSlug; })
-    : null;
-
   if (!showPage(route.page, false)) {
     showPage('about', false);
-    closeBlogPost(false);
-    return;
-  }
-
-  if (post) {
-    openBlogPost(post, false);
-  } else {
-    closeBlogPost(false);
   }
 }
 
 navigationLinks.forEach(function (link) {
   link.addEventListener('click', function () {
-    closeBlogPost(false);
     showPage(this.dataset.navTarget, true);
   });
 });

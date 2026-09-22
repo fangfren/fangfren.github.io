@@ -254,11 +254,27 @@
           <div class="blog-section-header">
             <h3 class="h3 blog-section-title">文章时间线</h3>
 
-            <button class="blog-timeline-toggle" type="button" data-blog-timeline-toggle
-              aria-expanded="true" aria-controls="blog-timeline-panel">
-              <span data-blog-timeline-toggle-text>收起时间线</span>
-              <ion-icon name="chevron-up-outline"></ion-icon>
-            </button>
+            <div class="blog-section-actions">
+              <button class="blog-search-toggle" type="button" data-blog-search-toggle
+                aria-expanded="false" aria-controls="blog-search-panel">
+                <ion-icon name="search-outline"></ion-icon>
+                <span>搜索</span>
+              </button>
+
+              <button class="blog-timeline-toggle" type="button" data-blog-timeline-toggle
+                aria-expanded="true" aria-controls="blog-timeline-panel">
+                <span data-blog-timeline-toggle-text>收起时间线</span>
+                <ion-icon name="chevron-up-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="blog-search-panel" id="blog-search-panel" data-blog-search-panel hidden>
+            <label class="blog-search-field">
+              <ion-icon name="search-outline"></ion-icon>
+              <input type="search" data-blog-search-input placeholder="搜索文章标题" autocomplete="off">
+            </label>
+            <p class="blog-search-status" data-blog-search-status aria-live="polite"></p>
           </div>
 
           <div class="blog-timeline-panel" id="blog-timeline-panel" data-blog-timeline-panel>
@@ -389,36 +405,6 @@
     </div>
 
   </main>
-
-  <div class="blog-modal" data-blog-modal aria-hidden="true">
-    <div class="blog-modal-overlay" data-blog-modal-close></div>
-
-    <div class="blog-modal-panel" role="dialog" aria-modal="true" aria-labelledby="blog-modal-title">
-      <button class="blog-modal-close" type="button" data-blog-modal-close aria-label="关闭文章详情">
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-
-      <div class="blog-modal-scroll" data-blog-modal-scroll>
-        <figure class="blog-modal-cover" data-blog-modal-cover hidden>
-          <img src="" alt="" data-blog-modal-image>
-        </figure>
-
-        <div class="blog-modal-body">
-          <div class="blog-meta">
-            <span class="blog-category" data-blog-modal-category></span>
-            <span class="dot"></span>
-            <time data-blog-modal-date></time>
-            <span class="dot"></span>
-            <span data-blog-modal-reading-time></span>
-          </div>
-
-          <h2 class="blog-modal-title" id="blog-modal-title" data-blog-modal-title></h2>
-          <p class="blog-modal-summary" data-blog-modal-summary></p>
-          <div class="blog-article" data-blog-content></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="./assets/js/blog-posts.js"></script>
   <script src="./assets/js/script.js"></script>
