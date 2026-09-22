@@ -63,9 +63,7 @@ const blogTimeline = document.querySelector('[data-blog-timeline]');
 const blogTimelineList = document.querySelector('[data-blog-timeline-list]');
 const blogTimelinePanel = document.querySelector('[data-blog-timeline-panel]');
 const blogTimelineToggle = document.querySelector('[data-blog-timeline-toggle]');
-const blogTimelineToggleText = document.querySelector('[data-blog-timeline-toggle-text]');
-const blogSearchToggle = document.querySelector('[data-blog-search-toggle]');
-const blogSearchPanel = document.querySelector('[data-blog-search-panel]');
+const blogSearchForm = document.querySelector('[data-blog-search-form]');
 const blogSearchInput = document.querySelector('[data-blog-search-input]');
 const blogSearchStatus = document.querySelector('[data-blog-search-status]');
 const blogDateFormatter = new Intl.DateTimeFormat('zh-CN', {
@@ -209,7 +207,7 @@ function renderBlogPosts() {
   blogList.replaceChildren(...cards);
 
   if (blogTimelineList) {
-    const timelineItems = blogPosts.map(createBlogTimelineItem);
+    const timelineItems = blogPosts.slice().reverse().map(createBlogTimelineItem);
     blogTimelineList.replaceChildren(...timelineItems);
   }
 
@@ -259,12 +257,19 @@ function filterBlogPosts(query) {
 }
 
 function setBlogSearchOpen(isOpen) {
-  if (!blogSearchToggle || !blogSearchPanel || !blogSearchInput) {
+  if (!blogSearchForm || !blogSearchInput) {
     return;
   }
 
-  blogSearchToggle.setAttribute('aria-expanded', String(isOpen));
-  blogSearchPanel.hidden = !isOpen;
+  blogSearchForm.classList.toggle('is-open', isOpen);
+
+  const submitButton = blogSearchForm.querySelector('.blog-search-submit');
+
+  blogSearchInput.disabled = !isOpen;
+
+  if (submitButton) {
+    submitButton.setAttribute('aria-label', isOpen ? '确认搜索' : '打开搜索');
+  }
 
   if (isOpen) {
     blogSearchInput.focus();
@@ -283,10 +288,6 @@ function setTimelineCollapsed(collapsed) {
   blogTimelineToggle.setAttribute('aria-expanded', String(!collapsed));
   blogTimelinePanel.setAttribute('aria-hidden', String(collapsed));
   blogTimelinePanel.toggleAttribute('inert', collapsed);
-
-  if (blogTimelineToggleText) {
-    blogTimelineToggleText.textContent = collapsed ? '展开时间线' : '收起时间线';
-  }
 }
 
 function scrollToBlogCard(slug) {
@@ -315,23 +316,28 @@ function scrollToBlogCard(slug) {
   }, 1800);
 }
 
-if (blogSearchToggle) {
-  blogSearchToggle.addEventListener('click', function () {
-    setBlogSearchOpen(blogSearchToggle.getAttribute('aria-expanded') !== 'true');
+if (blogSearchForm) {
+  blogSearchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!blogSearchForm.classList.contains('is-open')) {
+      setBlogSearchOpen(true);
+      return;
+    }
+
+    filterBlogPosts(blogSearchInput.value);
   });
 }
 
 if (blogSearchInput) {
-  blogSearchInput.addEventListener('input', function () {
-    filterBlogPosts(this.value);
-  });
-
   blogSearchInput.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       setBlogSearchOpen(false);
 
-      if (blogSearchToggle) {
-        blogSearchToggle.focus();
+      const submitButton = blogSearchForm.querySelector('.blog-search-submit');
+
+      if (submitButton) {
+        submitButton.focus();
       }
     }
   });

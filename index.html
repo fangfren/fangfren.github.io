@@ -86,10 +86,8 @@
 <!-- 地址 -->
           <li class="contact-item">
             <div class="icon-box">
-              <a href="https://www.google.com.hk/maps/place/%E4%B8%AD%E5%9B%BD%E9%BB%91%E9%BE%99%E6%B1%9F%E7%9C%81%E5%93%88%E5%B0%94%E6%BB%A8%E5%B8%82/
-              @45.7571115,126.4872127,11z/data=!3m1!4b1!4m6!3m5!1s0x5e4364f8a6641461:0x5e7c92735aa02cd5!8m2!3d45.7567307!4d126.6424173
-              !16zL20vMDEyM2dx?hl=zh-CN&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D" class="social-link" target="_blank" rel="noopener noreferrer"
-              aria-label="Location on Google Maps">
+              <a href="./map.html" class="social-link" target="_blank" rel="noopener noreferrer"
+                aria-label="Open Harbin map">
                 <ion-icon name="location-outline"></ion-icon>
               </a>
             </div>
@@ -252,30 +250,25 @@
 
         <section class="blog-timeline" data-blog-timeline>
           <div class="blog-section-header">
-            <h3 class="h3 blog-section-title">文章时间线</h3>
-
-            <div class="blog-section-actions">
-              <button class="blog-search-toggle" type="button" data-blog-search-toggle
-                aria-expanded="false" aria-controls="blog-search-panel">
-                <ion-icon name="search-outline"></ion-icon>
-                <span>搜索</span>
-              </button>
-
-              <button class="blog-timeline-toggle" type="button" data-blog-timeline-toggle
+            <h3 class="h3 blog-section-title">
+              <button class="blog-timeline-heading" type="button" data-blog-timeline-toggle
                 aria-expanded="true" aria-controls="blog-timeline-panel">
-                <span data-blog-timeline-toggle-text>收起时间线</span>
-                <ion-icon name="chevron-up-outline"></ion-icon>
+                <span>文章时间线</span>
+                <ion-icon name="caret-down-outline"></ion-icon>
               </button>
-            </div>
+            </h3>
+
+            <form class="blog-search-form" data-blog-search-form role="search">
+              <input type="search" data-blog-search-input placeholder="搜索文章标题" autocomplete="off"
+                aria-label="搜索文章标题" disabled>
+              <button class="blog-search-submit" type="submit" aria-label="打开搜索">
+                <ion-icon class="blog-search-icon" name="search-outline"></ion-icon>
+                <ion-icon class="blog-search-confirm-icon" name="checkmark-outline"></ion-icon>
+              </button>
+            </form>
           </div>
 
-          <div class="blog-search-panel" id="blog-search-panel" data-blog-search-panel hidden>
-            <label class="blog-search-field">
-              <ion-icon name="search-outline"></ion-icon>
-              <input type="search" data-blog-search-input placeholder="搜索文章标题" autocomplete="off">
-            </label>
-            <p class="blog-search-status" data-blog-search-status aria-live="polite"></p>
-          </div>
+          <p class="blog-search-status" data-blog-search-status aria-live="polite"></p>
 
           <div class="blog-timeline-panel" id="blog-timeline-panel" data-blog-timeline-panel>
             <ol class="blog-timeline-list" data-blog-timeline-list></ol>

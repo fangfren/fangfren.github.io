@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="哈尔滨市交互地图。">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#11151c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <title>哈尔滨地图 | Renff Space</title>
+
+  <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="map-view">
+
+  <main class="map-page">
+    <nav class="map-nav" aria-label="地图导航">
+      <a href="./index.html#other">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <span>返回主页</span>
+      </a>
+      <span>哈尔滨地图</span>
+    </nav>
+
+    <section class="map-shell">
+      <div class="map-canvas" id="harbin-map" data-map aria-label="哈尔滨市交互地图"></div>
+
+      <div class="map-caption">
+        <div>
+          <h1>哈尔滨市</h1>
+          <p>黑龙江省，中国</p>
+        </div>
+        <span>滚轮缩放地图</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./assets/js/map.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
