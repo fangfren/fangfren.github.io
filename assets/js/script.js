@@ -88,6 +88,18 @@ function formatBlogDate(dateString) {
   return Number.isNaN(date.getTime()) ? dateString : blogDateFormatter.format(date);
 }
 
+function showBlogBannerFallback(banner, post) {
+  if (banner.querySelector('.blog-banner-marker')) {
+    return;
+  }
+
+  banner.classList.add('blog-banner-fallback');
+  const marker = document.createElement('span');
+  marker.className = 'blog-banner-marker';
+  marker.textContent = post.category || 'Blog';
+  banner.appendChild(marker);
+}
+
 function createBlogCard(post) {
   const item = document.createElement('li');
   item.className = 'blog-post-item';
@@ -107,12 +119,13 @@ function createBlogCard(post) {
     image.alt = post.coverAlt || post.title;
     image.loading = 'lazy';
     image.decoding = 'async';
+    image.addEventListener('error', function () {
+      image.remove();
+      showBlogBannerFallback(banner, post);
+    });
     banner.appendChild(image);
   } else {
-    banner.classList.add('blog-banner-fallback');
-    const marker = document.createElement('span');
-    marker.textContent = post.category || 'Blog';
-    banner.appendChild(marker);
+    showBlogBannerFallback(banner, post);
   }
 
   const content = document.createElement('div');
@@ -290,10 +303,14 @@ function openBlogPost(post, updateHash) {
   blogModalContent.innerHTML = post.content || '<p>这篇文章还没有正文。</p>';
 
   if (post.cover) {
+    blogModalImage.onerror = function () {
+      blogModalCover.hidden = true;
+    };
     blogModalImage.src = post.cover;
     blogModalImage.alt = post.coverAlt || post.title;
     blogModalCover.hidden = false;
   } else {
+    blogModalImage.onerror = null;
     blogModalImage.removeAttribute('src');
     blogModalImage.alt = '';
     blogModalCover.hidden = true;
