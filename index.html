@@ -289,23 +289,28 @@
 
       <article class="portfolio" data-page="portfolio">
 <!-- projects页编辑 -->
-        <header>
+        <header class="projects-header">
           <h2 class="h2 article-title">Projects</h2>
+          <p class="projects-intro">记录正在学习、整理和持续改进的项目。</p>
         </header>
 
         <section class="projects">
 
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" type="button" data-filter-btn>All</button>
-            </li>
-            <li class="filter-item">
-              <button type="button" data-filter-btn>Python</button>
-            </li>
-            <li class="filter-item">
-              <button type="button" data-filter-btn>C</button>
-            </li>
-          </ul>
+          <div class="projects-toolbar">
+            <p class="projects-breadcrumb">Home <span>/</span> Projects</p>
+
+            <ul class="filter-list">
+              <li class="filter-item">
+                <button class="active" type="button" data-filter-btn>All</button>
+              </li>
+              <li class="filter-item">
+                <button type="button" data-filter-btn>Python</button>
+              </li>
+              <li class="filter-item">
+                <button type="button" data-filter-btn>C</button>
+              </li>
+            </ul>
+          </div>
 
           <div class="filter-select-box">
             <button class="filter-select" type="button" data-select aria-expanded="false">
@@ -331,33 +336,85 @@
           <ul class="project-list">
 
             <li class="project-item active" data-filter-item data-category="python">
-              <a href="https://github.com/renff-space/Practice_minigame" target="_blank" rel="noopener noreferrer">
-
+              <div class="project-card">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-python.svg" alt="Practice_minigame project cover" loading="lazy">
+                  <a class="project-media-link" href="https://github.com/renff-space/Practice_minigame"
+                    target="_blank" rel="noopener noreferrer" aria-label="Open Practice_minigame repository">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="logo-github"></ion-icon>
+                    </div>
+                    <img src="./assets/images/project-python.svg" alt="Practice_minigame project cover" loading="lazy">
+                  </a>
                 </figure>
 
-                <h3 class="project-title">Practice_minigame</h3>
-                <p class="project-category">Python_Mini game</p>
-              </a>
+                <div class="project-content">
+                  <p class="project-kicker">Python / Mini game</p>
+                  <h3 class="project-title">Practice_minigame</h3>
+                  <p class="project-description">
+                    一个用于练习 Python 基础语法的命令行小游戏，包含状态更新、分支判断、循环控制和函数拆分。
+                  </p>
+
+                  <ul class="project-tags" aria-label="Practice_minigame technologies">
+                    <li>Python</li>
+                    <li>CLI</li>
+                    <li>Game logic</li>
+                  </ul>
+
+                  <div class="project-actions">
+                    <a class="project-action primary" href="https://github.com/renff-space/Practice_minigame"
+                      target="_blank" rel="noopener noreferrer">
+                      <ion-icon name="logo-github"></ion-icon>
+                      <span>Repository</span>
+                    </a>
+                    <a class="project-action" href="https://github.com/renff-space/Practice_minigame#readme"
+                      target="_blank" rel="noopener noreferrer">
+                      <ion-icon name="book-outline"></ion-icon>
+                      <span>README</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </li>
 
             <li class="project-item active" data-filter-item data-category="c">
-              <a href="https://github.com/renff-space/PracticeGit" target="_blank" rel="noopener noreferrer">
-
+              <div class="project-card">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-c.svg" alt="PracticeGit project cover" loading="lazy">
+                  <a class="project-media-link" href="https://github.com/renff-space/PracticeGit"
+                    target="_blank" rel="noopener noreferrer" aria-label="Open PracticeGit repository">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="logo-github"></ion-icon>
+                    </div>
+                    <img src="./assets/images/project-c.svg" alt="PracticeGit project cover" loading="lazy">
+                  </a>
                 </figure>
 
-                <h3 class="project-title">PracticeGit</h3>
-                <p class="project-category">C_Fundamentals</p>
-              </a>
+                <div class="project-content">
+                  <p class="project-kicker">C / Version control</p>
+                  <h3 class="project-title">PracticeGit</h3>
+                  <p class="project-description">
+                    通过 C 语言练习和 Git 工作流记录，逐步整理编译流程、基础程序结构和版本管理操作。
+                  </p>
+
+                  <ul class="project-tags" aria-label="PracticeGit technologies">
+                    <li>C</li>
+                    <li>Git</li>
+                    <li>Fundamentals</li>
+                  </ul>
+
+                  <div class="project-actions">
+                    <a class="project-action primary" href="https://github.com/renff-space/PracticeGit"
+                      target="_blank" rel="noopener noreferrer">
+                      <ion-icon name="logo-github"></ion-icon>
+                      <span>Repository</span>
+                    </a>
+                    <a class="project-action" href="https://github.com/renff-space/PracticeGit#readme"
+                      target="_blank" rel="noopener noreferrer">
+                      <ion-icon name="book-outline"></ion-icon>
+                      <span>README</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </li>
 
           </ul>
