@@ -18,6 +18,7 @@
 
   <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,10 +87,9 @@
 <!-- 地址 -->
           <li class="contact-item">
             <div class="icon-box">
-              <a href="./map.html" class="social-link" target="_blank" rel="noopener noreferrer"
-                aria-label="Open Harbin map">
+              <button class="social-link" type="button" data-map-open aria-label="Open Harbin map">
                 <ion-icon name="location-outline"></ion-icon>
-              </a>
+              </button>
             </div>
 
             <div class="contact-info">
@@ -263,6 +263,7 @@
                 aria-label="搜索文章标题" disabled>
               <button class="blog-search-submit" type="submit" aria-label="打开搜索">
                 <ion-icon class="blog-search-icon" name="search-outline"></ion-icon>
+                <span class="blog-search-label">搜索</span>
                 <ion-icon class="blog-search-confirm-icon" name="checkmark-outline"></ion-icon>
               </button>
             </form>
@@ -399,8 +400,30 @@
 
   </main>
 
+  <div class="map-modal" data-map-modal aria-hidden="true">
+    <div class="map-modal-overlay" data-map-modal-close></div>
+
+    <div class="map-modal-panel" role="dialog" aria-modal="true" aria-labelledby="map-modal-title">
+      <button class="map-modal-close" type="button" data-map-modal-close aria-label="关闭地图">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="map-modal-header">
+        <div>
+          <h2 class="map-modal-title" id="map-modal-title">哈尔滨市</h2>
+          <p>黑龙江省，中国</p>
+        </div>
+        <span>滚轮缩放地图</span>
+      </div>
+
+      <div class="map-modal-canvas" data-map aria-label="哈尔滨市交互地图"></div>
+    </div>
+  </div>
+
   <script src="./assets/js/blog-posts.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./assets/js/map.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
