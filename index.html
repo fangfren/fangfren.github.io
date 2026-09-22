@@ -140,7 +140,7 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" type="button" data-nav-link data-nav-target="blog">blog</button>
+            <button class="navbar-link" type="button" data-nav-link data-nav-target="blog">Blog</button>
           </li>
 
           <li class="navbar-item">
@@ -148,7 +148,7 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" type="button" data-nav-link data-nav-target="Other">Other</button>
+            <button class="navbar-link" type="button" data-nav-link data-nav-target="other">Other</button>
           </li>
 
         </ul>
@@ -238,69 +238,51 @@
       <article class="resume" data-page="blog">
 
         <header>
-          <h2 class="h2 article-title">blog</h2>
+          <h2 class="h2 article-title">Blog</h2>
         </header>
 
-        <section class="timeline">
+        <section class="about-text">
+          <p>
+            记录一些个人随笔。
+          </p>
 
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="map-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Learning path</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Building a public portfolio</h4>
-              <span>2026 - Present</span>
-              <p class="timeline-text">
-                维护两个公开练习仓库，记录代码、提交和项目说明。
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Python mini game</h4>
-              <span>2026</span>
-              <p class="timeline-text">
-                在 Practice_minigame 中完成一个关于时光穿越机的简单 Python 程序。
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">C and version control foundations</h4>
-              <span>2026</span>
-              <p class="timeline-text">
-                通过 PracticeGit 练习 C 语言编译流程、基础程序结构和 Git 工作流。
-              </p>
-            </li>
-
-          </ol>
+          
         </section>
 
-        <section class="skill">
 
-          <h3 class="h3 skills-title">Toolbox</h3>
+        <section class="blog-timeline" data-blog-timeline>
+          <div class="blog-section-header">
+            <h3 class="h3 blog-section-title">文章时间线</h3>
 
-          <div class="skill-tags content-card" aria-label="Technologies">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C</span>
-            <span class="skill-tag">cpp</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
+            <button class="blog-timeline-toggle" type="button" data-blog-timeline-toggle
+              aria-expanded="true" aria-controls="blog-timeline-panel">
+              <span data-blog-timeline-toggle-text>收起时间线</span>
+              <ion-icon name="chevron-up-outline"></ion-icon>
+            </button>
           </div>
 
+          <div class="blog-timeline-panel" id="blog-timeline-panel" data-blog-timeline-panel>
+            <ol class="blog-timeline-list" data-blog-timeline-list></ol>
+          </div>
         </section>
+
+        <section class="blog-posts" aria-label="博客文章列表">
+          <div class="blog-section-header">
+            <h3 class="h3 blog-section-title">内容卡片</h3>
+          </div>
+
+          <ul class="blog-posts-list" data-blog-list></ul>
+          <p class="blog-empty" data-blog-empty hidden>还没有发布文章。</p>
+        </section>
+
       </article>
 
       <article class="portfolio" data-page="portfolio">
-
+<!-- projects页编辑 -->
         <header>
           <h2 class="h2 article-title">Projects</h2>
         </header>
-<!-- projects页编辑 -->
+
         <section class="projects">
 
           <ul class="filter-list">
@@ -372,7 +354,7 @@
         </section>
       </article>
 <!-- other页编辑 -->
-      <article class="contact" data-page="Other">
+      <article class="contact" data-page="other">
 
         <header>
           <h2 class="h2 article-title">Other</h2>
@@ -408,6 +390,37 @@
 
   </main>
 
+  <div class="blog-modal" data-blog-modal aria-hidden="true">
+    <div class="blog-modal-overlay" data-blog-modal-close></div>
+
+    <div class="blog-modal-panel" role="dialog" aria-modal="true" aria-labelledby="blog-modal-title">
+      <button class="blog-modal-close" type="button" data-blog-modal-close aria-label="关闭文章详情">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="blog-modal-scroll" data-blog-modal-scroll>
+        <figure class="blog-modal-cover" data-blog-modal-cover hidden>
+          <img src="" alt="" data-blog-modal-image>
+        </figure>
+
+        <div class="blog-modal-body">
+          <div class="blog-meta">
+            <span class="blog-category" data-blog-modal-category></span>
+            <span class="dot"></span>
+            <time data-blog-modal-date></time>
+            <span class="dot"></span>
+            <span data-blog-modal-reading-time></span>
+          </div>
+
+          <h2 class="blog-modal-title" id="blog-modal-title" data-blog-modal-title></h2>
+          <p class="blog-modal-summary" data-blog-modal-summary></p>
+          <div class="blog-article" data-blog-content></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/blog-posts.js"></script>
   <script src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

@@ -7,8 +7,14 @@ Renff Space 的个人主页，使用静态 HTML、CSS 和 JavaScript 构建。
 ## 内容
 
 - 个人简介与当前学习方向
+- 个人博客文章列表与详情阅读
 - 公开项目入口
 - GitHub 联系方式
+
+## 发布博客
+
+博客文章配置在 [`assets/js/blog-posts.js`](./assets/js/blog-posts.js)。复制其中的文章
+对象即可新增内容，页面会自动生成时间线和内容卡片、按日期排序，并在点击卡片后打开详情弹窗。
 
 ## 本地预览
 
