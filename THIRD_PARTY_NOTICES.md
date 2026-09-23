@@ -2,6 +2,21 @@
 
 This repository does not declare a license for the whole project.
 
+## Homepage background image
+
+`assets/images/home-scenery.jpg`
+
+- Title: Karst peaks mist and colorful clouds at sunrise seen from Mount Nam Xay in Vang Vieng Laos
+- Author: Basile Morin
+- Source: https://commons.wikimedia.org/wiki/File:Karst_peaks_mist_and_colorful_clouds_at_sunrise_seen_from_Mount_Nam_Xay_in_Vang_Vieng_Laos.jpg
+- License: Creative Commons Attribution-ShareAlike 4.0 International
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+
+The image was resized and recompressed for use as the homepage background.
+No other changes were made to the image content.
+
+## Portfolio source
+
 The files below include code or design structure derived from the
 `codewithsadee/vcard-personal-portfolio` project, which is licensed under the
 MIT License:

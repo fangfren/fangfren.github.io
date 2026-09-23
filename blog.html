@@ -14,21 +14,30 @@
   <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/redesign.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=UnifrakturCook:wght@700&display=swap"
+    rel="stylesheet">
 </head>
 
-<body class="article-view">
+<body class="article-view site-body">
 
   <main class="blog-article-page">
-    <nav class="blog-article-nav" aria-label="文章导航">
-      <a class="blog-article-back" href="./index.html#blog">
+    <nav class="page-navbar article-page-nav" aria-label="文章导航">
+      <a class="page-home-link" href="./index.html#blog">
         <ion-icon name="arrow-back-outline"></ion-icon>
         <span>返回博客</span>
       </a>
-      <a class="blog-article-home" href="./index.html">Renff Space</a>
+
+      <ul class="page-nav-list">
+        <li><a class="page-nav-link" href="./index.html#home">首页</a></li>
+        <li><a class="page-nav-link active" href="./index.html#blog">Blog</a></li>
+        <li><a class="page-nav-link" href="./index.html#portfolio">Projects</a></li>
+        <li><a class="page-nav-link" href="./index.html#other">Other</a></li>
+      </ul>
     </nav>
 
     <section class="blog-article-card" data-article-card>

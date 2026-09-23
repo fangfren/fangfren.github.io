@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Renff Space 的个人主页与公开项目。">
+  <meta name="description" content="Renff Space 的个人主页、博客与公开项目。">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#11151c" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Renff Space | 个人主页">
   <meta property="og:description" content="Building small projects, learning in public.">
-  <meta property="og:image" content="https://renff-space.github.io/assets/images/profile_photo.png">
+  <meta property="og:image" content="https://renff-space.github.io/assets/images/home-scenery.jpg">
   <meta property="og:url" content="https://renff-space.github.io/">
   <title>Renff Space | 个人主页</title>
 
@@ -20,233 +20,129 @@
   <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/redesign.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=UnifrakturCook:wght@700&display=swap"
+    rel="stylesheet">
 </head>
 
-<body>
+<body class="site-body">
 
-  <main>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
 
-    <aside class="sidebar" data-sidebar>
+  <main class="site-shell" id="main-content">
 
-      <div class="sidebar-info">
+    <article class="home-page active" data-page="home">
+      <div class="home-backdrop" aria-hidden="true"></div>
 
-        <figure class="avatar-box">
-          <img src="./assets/images/profile_photo.png" alt="Renff Space GitHub avatar" width="80">
-        </figure>
+      <div class="home-layout">
+        <header class="home-topbar">
+          <a class="home-brand" href="#home" data-nav-link data-nav-target="home" aria-label="返回首页">
+            <span class="brand-mark" aria-hidden="true">RS</span>
+            <span>Renff Space</span>
+          </a>
 
-        <div class="info-content">
-          <h1 class="name" title="Renff Space">Renff Space</h1>
-          <p class="title">Student &amp; Lifelong Learner</p>
-        </div>
+          <p class="home-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            Learning in public
+          </p>
+        </header>
 
-        <button class="info_more-btn" type="button" data-sidebar-btn aria-expanded="false">
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
+        <div class="home-center">
+          <button class="hero-avatar-flip" type="button" aria-label="悬停、聚焦或点击可查看当前状态"
+            aria-pressed="false">
+            <div class="hero-avatar-inner">
+              <div class="hero-avatar-face hero-avatar-front">
+                <img src="./assets/images/profile_photo.png" alt="Renff Space 的个人头像" width="148" height="148">
+                <span class="status-dot" aria-hidden="true"></span>
+              </div>
 
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-<!-- github仓库 -->
-          <li class="contact-item">
-            <div class="icon-box">
-              <a href="https://github.com/renff-space" class="social-link" target="_blank" rel="noopener noreferrer"
-              aria-label="GitHub profile">
-              <ion-icon name="logo-github"></ion-icon>
-              </a>
+              <div class="hero-avatar-face hero-avatar-back">
+                <strong>Keep Peace</strong>
+                <span>2026 · 平静</span>
+              </div>
             </div>
+          </button>
 
-            <div class="contact-info">
-              <p class="contact-title">GitHub</p>
-              <a>
-                @renff-space
+          <p class="hero-kicker">Code Create Life</p>
+          <h1 class="hero-name">Renff Space</h1>
+          <blockquote class="hero-quote">
+            <p data-home-quote>千里之行，始于足下。</p>
+            <cite data-home-quote-source>老子《道德经》</cite>
+          </blockquote>
+
+          <nav class="home-navigation" aria-label="主页导航">
+            <a class="home-nav-link active" href="#home" data-nav-link data-nav-target="home">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Home</span>
+            </a>
+            <a class="home-nav-link" href="#blog" data-nav-link data-nav-target="blog">
+              <ion-icon name="document-text-outline"></ion-icon>
+              <span>Blog</span>
+            </a>
+            <a class="home-nav-link" href="#portfolio" data-nav-link data-nav-target="portfolio">
+              <ion-icon name="code-slash-outline"></ion-icon>
+              <span>Projects</span>
+            </a>
+            <a class="home-nav-link" href="#other" data-nav-link data-nav-target="other">
+              <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+              <span>Other</span>
+            </a>
+          </nav>
+
+          <ul class="hero-social-list" aria-label="联系方式">
+            <li>
+              <a class="hero-social-link" href="https://github.com/renff-space" target="_blank"
+                rel="noopener noreferrer" aria-label="GitHub 主页">
+                <ion-icon name="logo-github"></ion-icon>
               </a>
-            </div>
-          </li>
-<!-- email -->
-          <li class="contact-item">
-            <div class="icon-box">
-              <a href="mailto:renf502@163.com" class="contact-link" aria-label="Send email">
+            </li>
+            <li>
+              <a class="hero-social-link" href="mailto:renf502@163.com" aria-label="发送邮件">
                 <ion-icon name="mail-outline"></ion-icon>
               </a>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a>renf502@163.com</a>
-            </div>
-          </li>
-<!-- 地址 -->
-          <li class="contact-item">
-            <div class="icon-box">
-              <button class="social-link" type="button" data-map-open aria-label="Open Harbin map">
+            </li>
+            <li>
+              <button class="hero-social-link" type="button" data-map-open aria-label="查看哈尔滨地图">
                 <ion-icon name="location-outline"></ion-icon>
               </button>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">address</p>
-              <a>
-                中国黑龙江省哈尔滨市
-              </a>
-            </div>
-          </li>
-<!-- 其他聚焦 -->
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="code-slash-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Focus</p>
-              <a>DFB & code</a>
-            </div>
-          </li>
-<!-- github小标 -->
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://github.com/renff-space" class="social-link" target="_blank" rel="noopener noreferrer"
-              aria-label="GitHub profile">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-
-    </aside>
-
-    <div class="main-content">
-
-      <nav class="navbar" aria-label="Primary navigation">
-        <ul class="navbar-list">
-<!-- 页顶按钮编辑 -->
-          <li class="navbar-item">
-            <button class="navbar-link active" type="button" data-nav-link data-nav-target="about">About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" type="button" data-nav-link data-nav-target="blog">Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" type="button" data-nav-link data-nav-target="portfolio">Projects</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" type="button" data-nav-link data-nav-target="other">Other</button>
-          </li>
-
-        </ul>
-      </nav>
-
-      <article class="about active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            我是 Renff-Space，正在通过小型项目学习编程和软件工程。目前公开的作品主要使用 Python 和 C，
-            内容涵盖简单游戏、基础语法练习和 Git/GitHub 工作流。
-          </p>
-
-          <p>
-            我希望通过持续构建、整理文档和复盘问题，把零散知识变成更清晰、可靠、可维护的工程能力。
-            这个主页会偶尔更新项目进展以及一些其他内容。
-          </p>
-        </section>
-
-        <section class="service">
-
-          <h3 class="h3 service-title">Current focus</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Python practice</h4>
-                <p class="service-item-text">
-                  通过交互式小程序练习控制流、函数和基础代码组织。
-                </p>
-              </div>
             </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">C fundamentals</h4>
-                <p class="service-item-text">
-                  熟悉编译流程、基础语法和最小可运行程序。
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Git &amp; GitHub</h4>
-                <p class="service-item-text">
-                  用版本控制管理练习代码，并逐步建立公开作品集。
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Learning in public</h4>
-                <p class="service-item-text">
-                  为项目补充 README，让每个仓库都能说明目标和使用方式。
-                </p>
-              </div>
-            </li>
-
           </ul>
-        </section>
+        </div>
 
-      </article>
-<!-- blog页编辑 -->
-      <article class="resume" data-page="blog">
+        <footer class="home-footer">
+          <p>Harbin, China <span>·</span> DFB &amp; code</p>
+          <a class="home-credit"
+            href="https://commons.wikimedia.org/wiki/File:Karst_peaks_mist_and_colorful_clouds_at_sunrise_seen_from_Mount_Nam_Xay_in_Vang_Vieng_Laos.jpg"
+            target="_blank" rel="noopener noreferrer">Photo: Basile Morin / CC BY-SA 4.0</a>
+          <p>© 2026 Renff Space</p>
+        </footer>
+      </div>
+    </article>
 
-        <header>
+    <article class="content-page" data-page="blog">
+      <div class="page-shell">
+        <nav class="page-navbar" aria-label="博客页面导航">
+          <a class="page-home-link" href="#home" data-nav-link data-nav-target="home">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>返回首页</span>
+          </a>
+
+          <ul class="page-nav-list">
+            <li><a class="page-nav-link active" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
+            <li><a class="page-nav-link" href="#portfolio" data-nav-link data-nav-target="portfolio">Projects</a></li>
+            <li><a class="page-nav-link" href="#other" data-nav-link data-nav-target="other">Other</a></li>
+          </ul>
+        </nav>
+
+        <header class="page-heading">
+          <p class="page-eyebrow">Writing / Notes</p>
           <h2 class="h2 article-title">Blog</h2>
+          <p class="page-description">记录编程学习中的片段、问题复盘和阶段总结，让做过的内容可以被重新找到。</p>
         </header>
-
-        <section class="about-text">
-          <p>
-            记录一些个人随笔。
-          </p>
-
-          
-        </section>
-
 
         <section class="blog-timeline" data-blog-timeline>
           <div class="blog-section-header">
@@ -284,18 +180,31 @@
           <ul class="blog-posts-list" data-blog-list></ul>
           <p class="blog-empty" data-blog-empty hidden>还没有发布文章。</p>
         </section>
+      </div>
+    </article>
 
-      </article>
+    <article class="content-page" data-page="portfolio">
+      <div class="page-shell">
+        <nav class="page-navbar" aria-label="项目页面导航">
+          <a class="page-home-link" href="#home" data-nav-link data-nav-target="home">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>返回首页</span>
+          </a>
 
-      <article class="portfolio" data-page="portfolio">
-<!-- projects页编辑 -->
-        <header class="projects-header">
+          <ul class="page-nav-list">
+            <li><a class="page-nav-link" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
+            <li><a class="page-nav-link active" href="#portfolio" data-nav-link data-nav-target="portfolio">Projects</a></li>
+            <li><a class="page-nav-link" href="#other" data-nav-link data-nav-target="other">Other</a></li>
+          </ul>
+        </nav>
+
+        <header class="page-heading">
+          <p class="page-eyebrow">Build / Practice</p>
           <h2 class="h2 article-title">Projects</h2>
-          <p class="projects-intro">记录正在学习、整理和持续改进的项目。</p>
+          <p class="page-description">记录正在学习、整理和持续改进的项目。每个作品都尽量说明目标、使用方式和实现过程。</p>
         </header>
 
         <section class="projects">
-
           <div class="projects-toolbar">
             <p class="projects-breadcrumb">Home <span>/</span> Projects</p>
 
@@ -334,16 +243,15 @@
           </div>
 
           <ul class="project-list">
-
             <li class="project-item active" data-filter-item data-category="python">
               <div class="project-card">
                 <figure class="project-img">
                   <a class="project-media-link" href="https://github.com/renff-space/Practice_minigame"
-                    target="_blank" rel="noopener noreferrer" aria-label="Open Practice_minigame repository">
+                    target="_blank" rel="noopener noreferrer" aria-label="打开 Practice_minigame 仓库">
                     <div class="project-item-icon-box">
                       <ion-icon name="logo-github"></ion-icon>
                     </div>
-                    <img src="./assets/images/project-python.svg" alt="Practice_minigame project cover" loading="lazy">
+                    <img src="./assets/images/project-python.svg" alt="Practice_minigame 项目封面" loading="lazy">
                   </a>
                 </figure>
 
@@ -354,7 +262,7 @@
                     一个用于练习 Python 基础语法的命令行小游戏，包含状态更新、分支判断、循环控制和函数拆分。
                   </p>
 
-                  <ul class="project-tags" aria-label="Practice_minigame technologies">
+                  <ul class="project-tags" aria-label="Practice_minigame 技术栈">
                     <li>Python</li>
                     <li>CLI</li>
                     <li>Game logic</li>
@@ -380,11 +288,11 @@
               <div class="project-card">
                 <figure class="project-img">
                   <a class="project-media-link" href="https://github.com/renff-space/PracticeGit"
-                    target="_blank" rel="noopener noreferrer" aria-label="Open PracticeGit repository">
+                    target="_blank" rel="noopener noreferrer" aria-label="打开 PracticeGit 仓库">
                     <div class="project-item-icon-box">
                       <ion-icon name="logo-github"></ion-icon>
                     </div>
-                    <img src="./assets/images/project-c.svg" alt="PracticeGit project cover" loading="lazy">
+                    <img src="./assets/images/project-c.svg" alt="PracticeGit 项目封面" loading="lazy">
                   </a>
                 </figure>
 
@@ -395,7 +303,7 @@
                     通过 C 语言练习和 Git 工作流记录，逐步整理编译流程、基础程序结构和版本管理操作。
                   </p>
 
-                  <ul class="project-tags" aria-label="PracticeGit technologies">
+                  <ul class="project-tags" aria-label="PracticeGit 技术栈">
                     <li>C</li>
                     <li>Git</li>
                     <li>Fundamentals</li>
@@ -416,44 +324,99 @@
                 </div>
               </div>
             </li>
-
           </ul>
         </section>
-      </article>
-<!-- other页编辑 -->
-      <article class="contact" data-page="other">
+      </div>
+    </article>
 
-        <header>
+    <article class="content-page" data-page="other">
+      <div class="page-shell">
+        <nav class="page-navbar" aria-label="其他页面导航">
+          <a class="page-home-link" href="#home" data-nav-link data-nav-target="home">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>返回首页</span>
+          </a>
+
+          <ul class="page-nav-list">
+            <li><a class="page-nav-link" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
+            <li><a class="page-nav-link" href="#portfolio" data-nav-link data-nav-target="portfolio">Projects</a></li>
+            <li><a class="page-nav-link active" href="#other" data-nav-link data-nav-target="other">Other</a></li>
+          </ul>
+        </nav>
+
+        <header class="page-heading">
+          <p class="page-eyebrow">Contact / Directory</p>
           <h2 class="h2 article-title">Other</h2>
+          <p class="page-description">公开入口、联系方式与站内目录集中在这里。这个站点不收集访客信息。</p>
         </header>
 
-        <section class="contact-card content-card">
-          <div class="contact-card-icon">
-            <ion-icon name="logo-github"></ion-icon>
+        <section class="other-card-grid" aria-label="公开入口">
+          <article class="other-card">
+            <div class="other-card-icon">
+              <ion-icon name="logo-github"></ion-icon>
+            </div>
+            <p class="other-card-label">Open source</p>
+            <h3 class="other-card-title">GitHub</h3>
+            <p class="other-card-text">查看仓库、提交记录和正在持续整理的项目。</p>
+            <a class="other-card-link" href="https://github.com/renff-space" target="_blank" rel="noopener noreferrer">
+              <span>@renff-space</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </article>
+
+          <article class="other-card">
+            <div class="other-card-icon">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <p class="other-card-label">Contact</p>
+            <h3 class="other-card-title">Email</h3>
+            <p class="other-card-text">适合交流学习记录、项目建议或其他长期沟通。</p>
+            <a class="other-card-link" href="mailto:renf502@163.com">
+              <span>renf502@163.com</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </article>
+
+          <article class="other-card">
+            <div class="other-card-icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <p class="other-card-label">Location</p>
+            <h3 class="other-card-title">Harbin</h3>
+            <p class="other-card-text">中国黑龙江省哈尔滨市，通常使用 Asia/Shanghai 时区。</p>
+            <button class="other-card-link" type="button" data-map-open>
+              <span>查看地图</span>
+              <ion-icon name="map-outline"></ion-icon>
+            </button>
+          </article>
+        </section>
+
+        <section class="site-directory" aria-labelledby="site-directory-title">
+          <div class="site-directory-heading">
+            <p class="page-eyebrow">Directory</p>
+            <h3 class="h3" id="site-directory-title">继续浏览</h3>
           </div>
 
-          <h3 class="h3">Find me on GitHub</h3>
-          <p>
-            项目源码、提交记录和后续更新都会发布在 GitHub。当前主页为静态站点，不收集访客信息。
-          </p>
-
-          <div class="contact-link-list">
-            <a href="https://github.com/renff-space" class="contact-action" target="_blank" rel="noopener noreferrer">
-              <ion-icon name="person-outline"></ion-icon>
-              <span>Profile</span>
+          <div class="site-directory-list">
+            <a href="#blog" data-nav-link data-nav-target="blog">
+              <span>Blog</span>
+              <small>随笔、复盘与学习记录</small>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
-
-            <a href="https://github.com/renff-space?tab=repositories" class="contact-action" target="_blank"
-              rel="noopener noreferrer">
-              <ion-icon name="folder-open-outline"></ion-icon>
-              <span>Repositories</span>
+            <a href="#portfolio" data-nav-link data-nav-target="portfolio">
+              <span>Projects</span>
+              <small>Python、C 与公开作品</small>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+            <a href="#home" data-nav-link data-nav-target="home">
+              <span>Home</span>
+              <small>返回整屏主页</small>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
           </div>
         </section>
-
-      </article>
-
-    </div>
+      </div>
+    </article>
 
   </main>
 

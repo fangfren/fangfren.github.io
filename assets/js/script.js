@@ -1,5 +1,46 @@
 'use strict';
 
+const homeQuotes = [
+  { text: '千里之行，始于足下。', source: '老子《道德经》' },
+  { text: '认识你自己。', source: '德尔斐箴言' },
+  { text: '未经审视的人生不值得过。', source: '苏格拉底' },
+  { text: '凡不能毁灭我的，必使我更强大。', source: '尼采' },
+  { text: '知之为知之，不知为不知，是知也。', source: '《论语》' },
+  { text: '山重水复疑无路，柳暗花明又一村。', source: '陆游《游山西村》' },
+  { text: '不积跬步，无以至千里。', source: '荀子《劝学》' },
+  { text: '凡是过往，皆为序章。', source: '莎士比亚《暴风雨》' },
+  { text: '知足不辱，知止不殆。', source: '老子《道德经》' },
+  { text: '路漫漫其修远兮，吾将上下而求索。', source: '屈原《离骚》' }
+];
+
+function updateHomeQuote() {
+  const quoteElement = document.querySelector('[data-home-quote]');
+  const sourceElement = document.querySelector('[data-home-quote-source]');
+
+  if (!quoteElement || !sourceElement) {
+    return;
+  }
+
+  const currentText = quoteElement.textContent;
+  let nextQuote = homeQuotes[Math.floor(Math.random() * homeQuotes.length)];
+
+  if (homeQuotes.length > 1 && nextQuote.text === currentText) {
+    nextQuote = homeQuotes[(homeQuotes.indexOf(nextQuote) + 1) % homeQuotes.length];
+  }
+
+  quoteElement.textContent = nextQuote.text;
+  sourceElement.textContent = nextQuote.source;
+}
+
+const avatarFlip = document.querySelector('.hero-avatar-flip');
+
+if (avatarFlip) {
+  avatarFlip.addEventListener('click', function () {
+    const isFlipped = avatarFlip.classList.toggle('is-flipped');
+    avatarFlip.setAttribute('aria-pressed', String(isFlipped));
+  });
+}
+
 const sidebar = document.querySelector('[data-sidebar]');
 const sidebarButton = document.querySelector('[data-sidebar-btn]');
 
@@ -381,6 +422,12 @@ function showPage(target, updateHash) {
     page.classList.toggle('active', page.dataset.page === target);
   });
 
+  document.body.dataset.page = target;
+
+  if (target === 'home') {
+    updateHomeQuote();
+  }
+
   if (updateHash) {
     history.replaceState(null, '', '#' + target);
   }
@@ -392,18 +439,20 @@ function showPage(target, updateHash) {
 function getRouteFromHash() {
   const hash = decodeURIComponent(window.location.hash.slice(1));
   const parts = hash.split('/');
+  const page = parts[0] || 'home';
 
-  return { page: parts[0] || 'about' };
+  return { page: page === 'about' ? 'home' : page };
 }
 
 function showRoute(route) {
   if (!showPage(route.page, false)) {
-    showPage('about', false);
+    showPage('home', false);
   }
 }
 
 navigationLinks.forEach(function (link) {
-  link.addEventListener('click', function () {
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
     showPage(this.dataset.navTarget, true);
   });
 });
