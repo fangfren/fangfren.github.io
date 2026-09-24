@@ -13,6 +13,81 @@ const homeQuotes = [
   { text: '路漫漫其修远兮，吾将上下而求索。', source: '屈原《离骚》' }
 ];
 
+const homeBackdrop = document.querySelector('.home-backdrop');
+const homeWallpaperImage = document.querySelector('[data-home-wallpaper]');
+const homeWallpaperCredit = document.querySelector('[data-home-wallpaper-credit]');
+const bingWallpaperEndpoint = 'https://bing.biturl.top/?resolution=1920&format=json&index=0&mkt=zh-CN';
+
+function getSafeBingUrl(value, allowedPaths) {
+  try {
+    const bingUrl = new URL(value);
+    const isBingHost = bingUrl.hostname === 'www.bing.com' || bingUrl.hostname === 'bing.com';
+
+    if (bingUrl.protocol !== 'https:' || !isBingHost || !allowedPaths.includes(bingUrl.pathname)) {
+      return '';
+    }
+
+    return bingUrl.href;
+  } catch (error) {
+    return '';
+  }
+}
+
+function getSafeBingWallpaperUrl(value) {
+  return getSafeBingUrl(value, ['/th']);
+}
+
+function getSafeBingCreditUrl(value) {
+  return getSafeBingUrl(value, ['/search']);
+}
+
+function preloadImage(source) {
+  return new Promise(function (resolve, reject) {
+    const image = new Image();
+    image.decoding = 'async';
+    image.referrerPolicy = 'no-referrer';
+    image.addEventListener('load', function () {
+      resolve();
+    }, { once: true });
+    image.addEventListener('error', reject, { once: true });
+    image.src = source;
+  });
+}
+
+async function updateBingWallpaper() {
+  if (!homeBackdrop || !homeWallpaperImage) {
+    return;
+  }
+
+  try {
+    const response = await fetch(bingWallpaperEndpoint, { cache: 'no-store' });
+
+    if (!response.ok) {
+      throw new Error('Bing wallpaper request failed');
+    }
+
+    const wallpaper = await response.json();
+    const wallpaperUrl = getSafeBingWallpaperUrl(wallpaper.url);
+
+    if (!wallpaperUrl) {
+      throw new Error('Bing wallpaper URL is invalid');
+    }
+
+    await preloadImage(wallpaperUrl);
+
+    homeWallpaperImage.src = wallpaperUrl;
+    homeBackdrop.classList.add('has-bing-wallpaper');
+
+    if (homeWallpaperCredit) {
+      const creditUrl = getSafeBingCreditUrl(wallpaper.copyright_link) || 'https://www.bing.com/';
+      homeWallpaperCredit.href = creditUrl;
+      homeWallpaperCredit.textContent = wallpaper.copyright || 'Bing daily wallpaper';
+    }
+  } catch (error) {
+    homeBackdrop.classList.remove('has-bing-wallpaper');
+  }
+}
+
 function updateHomeQuote() {
   const quoteElement = document.querySelector('[data-home-quote]');
   const sourceElement = document.querySelector('[data-home-quote-source]');
@@ -464,3 +539,4 @@ window.addEventListener('hashchange', function () {
 renderBlogPosts();
 setTimelineCollapsed(false);
 showRoute(getRouteFromHash());
+updateBingWallpaper();
