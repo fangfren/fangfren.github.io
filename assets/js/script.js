@@ -126,50 +126,6 @@ if (sidebar && sidebarButton) {
   });
 }
 
-const select = document.querySelector('[data-select]');
-const selectItems = document.querySelectorAll('[data-select-item]');
-const selectValue = document.querySelector('[data-selecct-value]');
-const filterButtons = document.querySelectorAll('[data-filter-btn]');
-const filterItems = document.querySelectorAll('[data-filter-item]');
-
-function filterProjects(selectedValue) {
-  filterItems.forEach(function (item) {
-    const matches = selectedValue === 'all' || selectedValue === item.dataset.category;
-    item.classList.toggle('active', matches);
-  });
-}
-
-if (select && selectValue) {
-  select.addEventListener('click', function () {
-    const isActive = select.classList.toggle('active');
-    select.setAttribute('aria-expanded', String(isActive));
-  });
-}
-
-selectItems.forEach(function (item) {
-  item.addEventListener('click', function () {
-    const selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    select.classList.remove('active');
-    select.setAttribute('aria-expanded', 'false');
-    filterProjects(selectedValue);
-  });
-});
-
-filterButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    const selectedValue = this.innerText.toLowerCase();
-
-    filterButtons.forEach(function (item) {
-      item.classList.remove('active');
-    });
-
-    this.classList.add('active');
-    selectValue.innerText = this.innerText;
-    filterProjects(selectedValue);
-  });
-});
-
 const blogPosts = Array.isArray(window.RENFF_BLOG_POSTS)
   ? window.RENFF_BLOG_POSTS.slice()
   : [];
@@ -179,9 +135,11 @@ const blogTimeline = document.querySelector('[data-blog-timeline]');
 const blogTimelineList = document.querySelector('[data-blog-timeline-list]');
 const blogTimelinePanel = document.querySelector('[data-blog-timeline-panel]');
 const blogTimelineToggle = document.querySelector('[data-blog-timeline-toggle]');
+const blogTagList = document.querySelector('[data-blog-tag-list]');
 const blogSearchForm = document.querySelector('[data-blog-search-form]');
 const blogSearchInput = document.querySelector('[data-blog-search-input]');
 const blogSearchStatus = document.querySelector('[data-blog-search-status]');
+let selectedBlogTag = '';
 const blogDateFormatter = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
   month: 'long',
@@ -211,9 +169,15 @@ function createBlogCard(post) {
 
   const link = document.createElement('a');
   link.className = 'blog-post-link';
-  link.href = './blog.html?slug=' + encodeURIComponent(post.slug);
+  link.href = post.url || './blog.html?slug=' + encodeURIComponent(post.slug);
   link.dataset.blogSlug = post.slug;
-  link.dataset.blogTitle = post.title.toLocaleLowerCase('zh-CN');
+  link.dataset.blogSearch = [
+    post.title,
+    post.summary,
+    post.category,
+    (post.tags || []).join(' ')
+  ].join(' ').toLocaleLowerCase('zh-CN');
+  link.dataset.blogTags = (post.tags || []).join('|');
   link.setAttribute('aria-label', '阅读文章：' + post.title);
 
   const banner = document.createElement(post.cover ? 'figure' : 'div');
@@ -259,12 +223,22 @@ function createBlogCard(post) {
   summary.className = 'blog-text';
   summary.textContent = post.summary || '';
 
+  const tags = document.createElement('ul');
+  tags.className = 'blog-card-tags';
+  tags.setAttribute('aria-label', post.title + ' 文章标签');
+
+  (post.tags || []).slice(0, 3).forEach(function (tag) {
+    const item = document.createElement('li');
+    item.textContent = tag;
+    tags.appendChild(item);
+  });
+
   const readMore = document.createElement('span');
   readMore.className = 'blog-read-more';
   readMore.textContent = '阅读全文';
 
   meta.append(category, dot, time);
-  content.append(meta, title, summary, readMore);
+  content.append(meta, title, summary, tags, readMore);
   link.append(banner, content);
   item.appendChild(link);
 
@@ -279,7 +253,13 @@ function createBlogTimelineItem(post) {
   button.className = 'blog-timeline-button';
   button.type = 'button';
   button.dataset.blogScrollTarget = post.slug;
-  button.dataset.blogTitle = post.title.toLocaleLowerCase('zh-CN');
+  button.dataset.blogSearch = [
+    post.title,
+    post.summary,
+    post.category,
+    (post.tags || []).join(' ')
+  ].join(' ').toLocaleLowerCase('zh-CN');
+  button.dataset.blogTags = (post.tags || []).join('|');
   button.setAttribute('aria-label', '跳转到文章：' + post.title);
 
   const marker = document.createElement('span');
@@ -310,6 +290,30 @@ function createBlogTimelineItem(post) {
   return item;
 }
 
+function renderBlogTags() {
+  if (!blogTagList) {
+    return;
+  }
+
+  const tags = Array.from(new Set(blogPosts.flatMap(function (post) {
+    return Array.isArray(post.tags) ? post.tags : [];
+  }))).sort(function (first, second) {
+    return first.localeCompare(second, 'zh-CN');
+  });
+
+  const buttons = ['全部'].concat(tags).map(function (tag, index) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'blog-tag-filter';
+    button.dataset.blogTag = index === 0 ? '' : tag;
+    button.textContent = tag;
+    button.classList.toggle('active', selectedBlogTag === button.dataset.blogTag);
+    return button;
+  });
+
+  blogTagList.replaceChildren(...buttons);
+}
+
 function renderBlogPosts() {
   if (!blogList) {
     return;
@@ -335,6 +339,7 @@ function renderBlogPosts() {
     blogEmpty.hidden = blogPosts.length > 0;
   }
 
+  renderBlogTags();
   filterBlogPosts(blogSearchInput ? blogSearchInput.value : '');
 }
 
@@ -344,7 +349,10 @@ function filterBlogPosts(query) {
 
   if (blogList) {
     Array.from(blogList.querySelectorAll('[data-blog-slug]')).forEach(function (card) {
-      const isMatch = !keyword || card.dataset.blogTitle.indexOf(keyword) !== -1;
+      const matchesKeyword = !keyword || card.dataset.blogSearch.indexOf(keyword) !== -1;
+      const cardTags = (card.dataset.blogTags || '').split('|');
+      const matchesTag = !selectedBlogTag || cardTags.indexOf(selectedBlogTag) !== -1;
+      const isMatch = matchesKeyword && matchesTag;
       card.closest('.blog-post-item').hidden = !isMatch;
 
       if (isMatch) {
@@ -355,7 +363,10 @@ function filterBlogPosts(query) {
 
   if (blogTimelineList) {
     Array.from(blogTimelineList.querySelectorAll('[data-blog-scroll-target]')).forEach(function (button) {
-      const isMatch = !keyword || button.dataset.blogTitle.indexOf(keyword) !== -1;
+      const matchesKeyword = !keyword || button.dataset.blogSearch.indexOf(keyword) !== -1;
+      const itemTags = (button.dataset.blogTags || '').split('|');
+      const matchesTag = !selectedBlogTag || itemTags.indexOf(selectedBlogTag) !== -1;
+      const isMatch = matchesKeyword && matchesTag;
       button.closest('.blog-timeline-item').hidden = !isMatch;
     });
   }
@@ -368,8 +379,42 @@ function filterBlogPosts(query) {
   }
 
   if (blogSearchStatus) {
-    blogSearchStatus.textContent = keyword ? '找到 ' + matches + ' 篇文章' : '';
+    const filters = [];
+
+    if (keyword) {
+      filters.push('关键词“' + query.trim() + '”');
+    }
+
+    if (selectedBlogTag) {
+      filters.push('标签“' + selectedBlogTag + '”');
+    }
+
+    blogSearchStatus.textContent = filters.length
+      ? filters.join(' + ') + '：找到 ' + matches + ' 篇文章'
+      : '';
   }
+}
+
+function updateFeedStatus() {
+  const statusElement = document.querySelector('[data-feed-status]');
+
+  if (!statusElement) {
+    return;
+  }
+
+  if (!blogPosts.length) {
+    statusElement.textContent = '订阅源已就绪，等待第一篇文章。';
+    return;
+  }
+
+  const latestPost = blogPosts.reduce(function (latest, post) {
+    const postDate = post.updated || post.date;
+    const latestDate = latest.updated || latest.date;
+    return new Date(postDate) > new Date(latestDate) ? post : latest;
+  });
+
+  statusElement.textContent = '已收录 ' + blogPosts.length + ' 篇文章 · 最近更新 '
+    + formatBlogDate(latestPost.updated || latestPost.date);
 }
 
 function setBlogSearchOpen(isOpen) {
@@ -477,6 +522,80 @@ if (blogTimelineList) {
   });
 }
 
+if (blogTagList) {
+  blogTagList.addEventListener('click', function (event) {
+    const button = event.target.closest('[data-blog-tag]');
+
+    if (!button) {
+      return;
+    }
+
+    selectedBlogTag = button.dataset.blogTag;
+    renderBlogTags();
+    filterBlogPosts(blogSearchInput ? blogSearchInput.value : '');
+  });
+}
+
+const copyButtons = document.querySelectorAll('[data-copy-value]');
+
+function copyText(value) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(value);
+  }
+
+  return new Promise(function (resolve, reject) {
+    const input = document.createElement('textarea');
+    input.value = value;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+
+    try {
+      const copied = document.execCommand('copy');
+      input.remove();
+      copied ? resolve() : reject(new Error('Copy command failed'));
+    } catch (error) {
+      input.remove();
+      reject(error);
+    }
+  });
+}
+
+function setCopyButtonState(button, copied) {
+  const iconElement = button.querySelector('ion-icon');
+  const labelElement = button.querySelector('span');
+
+  button.classList.toggle('is-copied', copied);
+
+  if (iconElement && window.RenffIcons) {
+    iconElement.replaceChildren(window.RenffIcons.create(copied ? 'checkmark-outline' : 'copy-outline'));
+  }
+
+  if (labelElement) {
+    labelElement.textContent = copied ? '已复制' : '复制地址';
+  }
+}
+
+copyButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    copyText(button.dataset.copyValue).then(function () {
+      setCopyButtonState(button, true);
+      window.clearTimeout(Number(button.dataset.copyResetTimer));
+      button.dataset.copyResetTimer = String(window.setTimeout(function () {
+        setCopyButtonState(button, false);
+      }, 1800));
+    }).catch(function () {
+      const labelElement = button.querySelector('span');
+
+      if (labelElement) {
+        labelElement.textContent = '复制失败';
+      }
+    });
+  });
+});
+
 const navigationLinks = document.querySelectorAll('[data-nav-link]');
 const pages = document.querySelectorAll('[data-page]');
 
@@ -516,6 +635,11 @@ function getRouteFromHash() {
   const parts = hash.split('/');
   const page = parts[0] || 'home';
 
+  if (page === 'portfolio') {
+    window.location.replace('./projects.html');
+    return { page: 'home' };
+  }
+
   return { page: page === 'about' ? 'home' : page };
 }
 
@@ -537,6 +661,19 @@ window.addEventListener('hashchange', function () {
 });
 
 renderBlogPosts();
+updateFeedStatus();
 setTimelineCollapsed(false);
 showRoute(getRouteFromHash());
-updateBingWallpaper();
+
+const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+const shouldLoadRemoteWallpaper = !(connection && (connection.saveData || /2g/.test(connection.effectiveType || '')));
+
+if (shouldLoadRemoteWallpaper) {
+  const scheduleWallpaper = window.requestIdleCallback || function (callback) {
+    return window.setTimeout(callback, 1800);
+  };
+
+  scheduleWallpaper(function () {
+    updateBingWallpaper();
+  }, { timeout: 3500 });
+}

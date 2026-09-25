@@ -5,28 +5,67 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Renff Space 的个人主页、博客与公开项目。">
+  <meta name="description" content="Renff Space 的个人主页、学习博客与公开项目，记录代码、实践和持续创造。">
   <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#11151c" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11100e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f2f6f8" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Renff Space | 个人主页">
-  <meta property="og:description" content="Building small projects, learning in public.">
-  <meta property="og:image" content="https://fangfren.github.io/assets/images/home-scenery.jpg">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Renff Space | 代码、学习与持续创造">
+  <meta property="og:description" content="公开记录代码、学习和项目实践，保持一件件小作品持续向前。">
+  <meta property="og:image" content="https://fangfren.github.io/assets/images/home-scenery.webp">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1280">
   <meta property="og:url" content="https://fangfren.github.io/">
-  <title>Renff Space | 个人主页</title>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Renff Space | 代码、学习与持续创造">
+  <meta name="twitter:description" content="公开记录代码、学习和项目实践。">
+  <meta name="twitter:image" content="https://fangfren.github.io/assets/images/home-scenery.webp">
+  <title>Renff Space | 代码、学习与持续创造</title>
 
   <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="canonical" href="https://fangfren.github.io/">
+  <link rel="alternate" type="application/rss+xml" title="Renff Space RSS" href="./feed.xml">
+  <link rel="preload" as="image" href="./assets/images/home-scenery.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/redesign.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=UnifrakturCook:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap"
     rel="stylesheet">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://fangfren.github.io/#person",
+          "name": "Renff Space",
+          "url": "https://fangfren.github.io/",
+          "image": "https://fangfren.github.io/assets/images/profile_photo.png",
+          "sameAs": ["https://github.com/fangfren"],
+          "knowsAbout": ["Python", "C", "Git", "Software engineering"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://fangfren.github.io/#website",
+          "url": "https://fangfren.github.io/",
+          "name": "Renff Space",
+          "inLanguage": "zh-CN",
+          "author": { "@id": "https://fangfren.github.io/#person" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://fangfren.github.io/search.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body class="site-body">
@@ -37,7 +76,7 @@
 
     <article class="home-page active" data-page="home">
       <div class="home-backdrop" aria-hidden="true">
-        <img class="home-wallpaper-image" data-home-wallpaper src="./assets/images/home-scenery.jpg" alt=""
+        <img class="home-wallpaper-image" data-home-wallpaper src="./assets/images/home-scenery.webp" alt=""
           width="1920" height="1280" decoding="async" fetchpriority="high">
       </div>
 
@@ -48,10 +87,17 @@
             <span>Renff Space</span>
           </a>
 
-          <p class="home-status">
-            <span class="status-dot" aria-hidden="true"></span>
-            Learning in public
-          </p>
+          <div class="home-tools">
+            <p class="home-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              Learning in public
+            </p>
+            <button class="home-search-button" type="button" data-site-search-trigger aria-label="搜索文章和项目">
+              <ion-icon name="search-outline"></ion-icon>
+              <span>搜索</span>
+              <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
         </header>
 
         <div class="home-center">
@@ -59,7 +105,8 @@
             aria-pressed="false">
             <div class="hero-avatar-inner">
               <div class="hero-avatar-face hero-avatar-front">
-                <img src="./assets/images/profile_photo.png" alt="Renff Space 的个人头像" width="148" height="148">
+                <img src="./assets/images/profile_photo.webp" alt="Renff Space 的个人头像" width="148" height="148"
+                  decoding="async">
                 <span class="status-dot" aria-hidden="true"></span>
               </div>
 
@@ -86,7 +133,7 @@
               <ion-icon name="document-text-outline"></ion-icon>
               <span>Blog</span>
             </a>
-            <a class="home-nav-link" href="#portfolio" data-nav-link data-nav-target="portfolio">
+            <a class="home-nav-link" href="./projects.html">
               <ion-icon name="code-slash-outline"></ion-icon>
               <span>Projects</span>
             </a>
@@ -106,6 +153,11 @@
             <li>
               <a class="hero-social-link" href="mailto:renf502@163.com" aria-label="发送邮件">
                 <ion-icon name="mail-outline"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a class="hero-social-link" href="./feed.xml" aria-label="订阅 RSS">
+                <ion-icon name="rss-outline"></ion-icon>
               </a>
             </li>
             <li>
@@ -129,16 +181,23 @@
     <article class="content-page" data-page="blog">
       <div class="page-shell">
         <nav class="page-navbar" aria-label="博客页面导航">
-          <a class="page-home-link" href="#home" data-nav-link data-nav-target="home">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-            <span>返回首页</span>
+          <a class="page-brand" href="#home" data-nav-link data-nav-target="home">
+            <span class="brand-mark" aria-hidden="true">RS</span>
+            <span>Renff Space</span>
           </a>
 
-          <ul class="page-nav-list">
-            <li><a class="page-nav-link active" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
-            <li><a class="page-nav-link" href="#portfolio" data-nav-link data-nav-target="portfolio">Projects</a></li>
-            <li><a class="page-nav-link" href="#other" data-nav-link data-nav-target="other">Other</a></li>
-          </ul>
+          <div class="page-nav-actions">
+            <ul class="page-nav-list">
+              <li><a class="page-nav-link active" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
+              <li><a class="page-nav-link" href="./projects.html">Projects</a></li>
+              <li><a class="page-nav-link" href="#other" data-nav-link data-nav-target="other">Other</a></li>
+            </ul>
+            <button class="site-search-button" type="button" data-site-search-trigger>
+              <ion-icon name="search-outline"></ion-icon>
+              <span>搜索</span>
+              <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
         </nav>
 
         <header class="page-heading">
@@ -157,18 +216,15 @@
               </button>
             </h3>
 
-            <form class="blog-search-form" data-blog-search-form role="search">
-              <input type="search" data-blog-search-input placeholder="搜索文章标题" autocomplete="off"
-                aria-label="搜索文章标题" disabled>
-              <button class="blog-search-submit" type="submit" aria-label="打开搜索">
-                <ion-icon class="blog-search-icon" name="search-outline"></ion-icon>
-                <span class="blog-search-label">搜索</span>
-                <ion-icon class="blog-search-confirm-icon" name="checkmark-outline"></ion-icon>
-              </button>
-            </form>
+            <button class="blog-search-trigger" type="button" data-site-search-trigger>
+              <ion-icon name="search-outline"></ion-icon>
+              <span>全站搜索</span>
+              <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+            </button>
           </div>
 
           <p class="blog-search-status" data-blog-search-status aria-live="polite"></p>
+          <div class="blog-tag-bar" data-blog-tag-list aria-label="按文章标签筛选"></div>
 
           <div class="blog-timeline-panel" id="blog-timeline-panel" data-blog-timeline-panel>
             <ol class="blog-timeline-list" data-blog-timeline-list></ol>
@@ -186,165 +242,26 @@
       </div>
     </article>
 
-    <article class="content-page" data-page="portfolio">
-      <div class="page-shell">
-        <nav class="page-navbar" aria-label="项目页面导航">
-          <a class="page-home-link" href="#home" data-nav-link data-nav-target="home">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-            <span>返回首页</span>
-          </a>
-
-          <ul class="page-nav-list">
-            <li><a class="page-nav-link" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
-            <li><a class="page-nav-link active" href="#portfolio" data-nav-link data-nav-target="portfolio">Projects</a></li>
-            <li><a class="page-nav-link" href="#other" data-nav-link data-nav-target="other">Other</a></li>
-          </ul>
-        </nav>
-
-        <header class="page-heading">
-          <p class="page-eyebrow">Build / Practice</p>
-          <h2 class="h2 article-title">Projects</h2>
-          <p class="page-description">记录正在学习、整理和持续改进的项目。每个作品都尽量说明目标、使用方式和实现过程。</p>
-        </header>
-
-        <section class="projects">
-          <div class="projects-toolbar">
-            <p class="projects-breadcrumb">Home <span>/</span> Projects</p>
-
-            <ul class="filter-list">
-              <li class="filter-item">
-                <button class="active" type="button" data-filter-btn>All</button>
-              </li>
-              <li class="filter-item">
-                <button type="button" data-filter-btn>Python</button>
-              </li>
-              <li class="filter-item">
-                <button type="button" data-filter-btn>C</button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="filter-select-box">
-            <button class="filter-select" type="button" data-select aria-expanded="false">
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-
-            <ul class="select-list">
-              <li class="select-item">
-                <button type="button" data-select-item>All</button>
-              </li>
-              <li class="select-item">
-                <button type="button" data-select-item>Python</button>
-              </li>
-              <li class="select-item">
-                <button type="button" data-select-item>C</button>
-              </li>
-            </ul>
-          </div>
-
-          <ul class="project-list">
-            <li class="project-item active" data-filter-item data-category="python">
-              <div class="project-card">
-                <figure class="project-img">
-                  <a class="project-media-link" href="https://github.com/fangfren/Practice_minigame"
-                    target="_blank" rel="noopener noreferrer" aria-label="打开 Practice_minigame 仓库">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="logo-github"></ion-icon>
-                    </div>
-                    <img src="./assets/images/project-python.svg" alt="Practice_minigame 项目封面" loading="lazy">
-                  </a>
-                </figure>
-
-                <div class="project-content">
-                  <p class="project-kicker">Python / Mini game</p>
-                  <h3 class="project-title">Practice_minigame</h3>
-                  <p class="project-description">
-                    一个用于练习 Python 基础语法的命令行小游戏，包含状态更新、分支判断、循环控制和函数拆分。
-                  </p>
-
-                  <ul class="project-tags" aria-label="Practice_minigame 技术栈">
-                    <li>Python</li>
-                    <li>CLI</li>
-                    <li>Game logic</li>
-                  </ul>
-
-                  <div class="project-actions">
-                    <a class="project-action primary" href="https://github.com/fangfren/Practice_minigame"
-                      target="_blank" rel="noopener noreferrer">
-                      <ion-icon name="logo-github"></ion-icon>
-                      <span>Repository</span>
-                    </a>
-                    <a class="project-action" href="https://github.com/fangfren/Practice_minigame#readme"
-                      target="_blank" rel="noopener noreferrer">
-                      <ion-icon name="book-outline"></ion-icon>
-                      <span>README</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="c">
-              <div class="project-card">
-                <figure class="project-img">
-                  <a class="project-media-link" href="https://github.com/fangfren/PracticeGit"
-                    target="_blank" rel="noopener noreferrer" aria-label="打开 PracticeGit 仓库">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="logo-github"></ion-icon>
-                    </div>
-                    <img src="./assets/images/project-c.svg" alt="PracticeGit 项目封面" loading="lazy">
-                  </a>
-                </figure>
-
-                <div class="project-content">
-                  <p class="project-kicker">C / Version control</p>
-                  <h3 class="project-title">PracticeGit</h3>
-                  <p class="project-description">
-                    通过 C 语言练习和 Git 工作流记录，逐步整理编译流程、基础程序结构和版本管理操作。
-                  </p>
-
-                  <ul class="project-tags" aria-label="PracticeGit 技术栈">
-                    <li>C</li>
-                    <li>Git</li>
-                    <li>Fundamentals</li>
-                  </ul>
-
-                  <div class="project-actions">
-                    <a class="project-action primary" href="https://github.com/fangfren/PracticeGit"
-                      target="_blank" rel="noopener noreferrer">
-                      <ion-icon name="logo-github"></ion-icon>
-                      <span>Repository</span>
-                    </a>
-                    <a class="project-action" href="https://github.com/fangfren/PracticeGit#readme"
-                      target="_blank" rel="noopener noreferrer">
-                      <ion-icon name="book-outline"></ion-icon>
-                      <span>README</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </article>
-
     <article class="content-page" data-page="other">
       <div class="page-shell">
         <nav class="page-navbar" aria-label="其他页面导航">
-          <a class="page-home-link" href="#home" data-nav-link data-nav-target="home">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-            <span>返回首页</span>
+          <a class="page-brand" href="#home" data-nav-link data-nav-target="home">
+            <span class="brand-mark" aria-hidden="true">RS</span>
+            <span>Renff Space</span>
           </a>
 
-          <ul class="page-nav-list">
-            <li><a class="page-nav-link" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
-            <li><a class="page-nav-link" href="#portfolio" data-nav-link data-nav-target="portfolio">Projects</a></li>
-            <li><a class="page-nav-link active" href="#other" data-nav-link data-nav-target="other">Other</a></li>
-          </ul>
+          <div class="page-nav-actions">
+            <ul class="page-nav-list">
+              <li><a class="page-nav-link" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
+              <li><a class="page-nav-link" href="./projects.html">Projects</a></li>
+              <li><a class="page-nav-link active" href="#other" data-nav-link data-nav-target="other">Other</a></li>
+            </ul>
+            <button class="site-search-button" type="button" data-site-search-trigger>
+              <ion-icon name="search-outline"></ion-icon>
+              <span>搜索</span>
+              <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
         </nav>
 
         <header class="page-heading">
@@ -355,42 +272,114 @@
 
         <section class="other-card-grid" aria-label="公开入口">
           <article class="other-card">
-            <div class="other-card-icon">
-              <ion-icon name="logo-github"></ion-icon>
+            <div class="other-card-top">
+              <div class="other-card-icon">
+                <ion-icon name="logo-github"></ion-icon>
+              </div>
+              <span class="other-card-badge">Public</span>
             </div>
             <p class="other-card-label">Open source</p>
             <h3 class="other-card-title">GitHub</h3>
             <p class="other-card-text">查看仓库、提交记录和正在持续整理的项目。</p>
+            <dl class="other-card-meta">
+              <div>
+                <dt>账号</dt>
+                <dd>@fangfren</dd>
+              </div>
+              <div>
+                <dt>内容</dt>
+                <dd>仓库、提交与项目</dd>
+              </div>
+            </dl>
             <a class="other-card-link" href="https://github.com/fangfren" target="_blank" rel="noopener noreferrer">
-              <span>@fangfren</span>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+              <span>打开 GitHub</span>
+              <ion-icon name="external-link-outline"></ion-icon>
             </a>
           </article>
 
           <article class="other-card">
-            <div class="other-card-icon">
-              <ion-icon name="mail-outline"></ion-icon>
+            <div class="other-card-top">
+              <div class="other-card-icon">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <span class="other-card-badge">欢迎来信</span>
             </div>
             <p class="other-card-label">Contact</p>
             <h3 class="other-card-title">Email</h3>
             <p class="other-card-text">适合交流学习记录、项目建议或其他长期沟通。</p>
+            <dl class="other-card-meta">
+              <div>
+                <dt>渠道</dt>
+                <dd>电子邮件</dd>
+              </div>
+              <div>
+                <dt>用途</dt>
+                <dd>项目与学习交流</dd>
+              </div>
+            </dl>
             <a class="other-card-link" href="mailto:renf502@163.com">
-              <span>renf502@163.com</span>
+              <span>发送邮件</span>
               <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
           </article>
 
           <article class="other-card">
-            <div class="other-card-icon">
-              <ion-icon name="location-outline"></ion-icon>
+            <div class="other-card-top">
+              <div class="other-card-icon">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <span class="other-card-badge">UTC+8</span>
             </div>
             <p class="other-card-label">Location</p>
             <h3 class="other-card-title">Harbin</h3>
             <p class="other-card-text">中国黑龙江省哈尔滨市，通常使用 Asia/Shanghai 时区。</p>
+            <dl class="other-card-meta">
+              <div>
+                <dt>城市</dt>
+                <dd>哈尔滨</dd>
+              </div>
+              <div>
+                <dt>时区</dt>
+                <dd>Asia/Shanghai</dd>
+              </div>
+            </dl>
             <button class="other-card-link" type="button" data-map-open>
               <span>查看地图</span>
               <ion-icon name="map-outline"></ion-icon>
             </button>
+          </article>
+
+          <article class="other-card other-card-rss">
+            <div class="other-card-top">
+              <div class="other-card-icon">
+                <ion-icon name="rss-outline"></ion-icon>
+              </div>
+              <span class="other-card-badge">RSS 2.0 · 全文</span>
+            </div>
+            <p class="other-card-label">Syndication</p>
+            <h3 class="other-card-title">完整文章订阅</h3>
+            <p class="other-card-text">阅读器会自动获取封面、分类、作者和完整正文。不需要注册，也不会收到额外邮件。</p>
+            <p class="other-feed-status">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+              <span data-feed-status aria-live="polite">已收录 2 篇文章 · 最近更新 2026年9月22日</span>
+            </p>
+            <div class="other-feed-url">
+              <code>https://fangfren.github.io/feed.xml</code>
+              <button class="other-copy-button" type="button" data-copy-value="https://fangfren.github.io/feed.xml">
+                <ion-icon name="copy-outline"></ion-icon>
+                <span>复制地址</span>
+              </button>
+            </div>
+            <div class="other-card-actions">
+              <a class="other-card-link" href="./feed.xml" target="_blank" rel="noopener">
+                <span>打开订阅源</span>
+                <ion-icon name="external-link-outline"></ion-icon>
+              </a>
+              <a class="other-card-link" href="#blog" data-nav-link data-nav-target="blog">
+                <span>浏览全部文章</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </div>
           </article>
         </section>
 
@@ -406,7 +395,7 @@
               <small>随笔、复盘与学习记录</small>
               <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
-            <a href="#portfolio" data-nav-link data-nav-target="portfolio">
+            <a href="./projects.html">
               <span>Projects</span>
               <small>Python、C 与公开作品</small>
               <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -443,12 +432,12 @@
     </div>
   </div>
 
+  <script src="./assets/js/site-data.js"></script>
   <script src="./assets/js/blog-posts.js"></script>
+  <script src="./assets/js/icons.js"></script>
   <script src="./assets/js/script.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="./assets/js/map.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="./assets/js/search.js"></script>
 
 </body>
 

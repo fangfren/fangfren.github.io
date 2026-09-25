@@ -7,8 +7,50 @@ const mapOpenButtons = document.querySelectorAll('[data-map-open]');
 const mapCloseButtons = document.querySelectorAll('[data-map-modal-close]');
 let mapInstance = null;
 let lastFocusedElement = null;
+let leafletPromise = null;
 
-function initializeMap() {
+function loadLeaflet() {
+  if (window.L) {
+    return Promise.resolve(window.L);
+  }
+
+  if (leafletPromise) {
+    return leafletPromise;
+  }
+
+  leafletPromise = new Promise(function (resolve, reject) {
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(stylesheet);
+
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    script.async = true;
+    script.addEventListener('load', function () {
+      resolve(window.L);
+    }, { once: true });
+    script.addEventListener('error', reject, { once: true });
+    document.head.appendChild(script);
+  });
+
+  return leafletPromise;
+}
+
+async function initializeMap() {
+  if (!mapElement || mapInstance) {
+    return;
+  }
+
+  if (!window.L) {
+    try {
+      await loadLeaflet();
+    } catch (error) {
+      mapElement.textContent = '地图加载失败，请稍后重试。';
+      return;
+    }
+  }
+
   if (!mapElement || mapInstance || !window.L) {
     return;
   }
@@ -40,7 +82,7 @@ function initializeMap() {
   }, 120);
 }
 
-function openMapModal() {
+async function openMapModal() {
   if (!mapModal) {
     return;
   }
@@ -49,7 +91,7 @@ function openMapModal() {
   mapModal.classList.add('active');
   mapModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('map-modal-open');
-  initializeMap();
+  await initializeMap();
 
   if (mapCloseButton) {
     mapCloseButton.focus();

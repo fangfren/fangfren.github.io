@@ -12,10 +12,12 @@ window.RENFF_BLOG_POSTS = [
     title: '开始记录：这个博客会写些什么',
     date: '2026-09-22',
     category: '随笔',
+    tags: ['学习记录', '写作', '长期主义'],
     readingTime: '2 分钟',
     summary: '把学习过程中真正做过、踩过坑和想明白的内容整理下来，作为一份可以回看的个人记录。',
-    cover: './assets/images/blog_start_here.png',
+    cover: './assets/images/blog_start_here.webp',
     coverAlt: '开始记录博客文章的封面',
+    url: './posts/start-here.html',
     content: `
       <p>
         这个博客会用来记录我在编程学习中的一些片段。它不是教程合集，也不会追求每一篇都很完整，
@@ -44,10 +46,12 @@ window.RENFF_BLOG_POSTS = [
     title: '第一次：这个博客是技术尝试',
     date: '2026-09-22',
     category: '随笔',
+    tags: ['技术成长', '复盘', '记录'],
     readingTime: '1 分钟',
     summary: '把过去和当下真正做过、踩过坑、想明白，或者百思不得其解的内容整理下来，作为一份可以回看的个人记录。',
-    cover: './assets/images/blog_practice_1.png',
+    cover: './assets/images/blog_practice_1.webp',
     coverAlt: '第一次技术尝试文章的封面',
+    url: './posts/start-practice.html',
     content: `
       <p>
         这个博客会用来记录我在编程学习中的一些片段。它不是教程合集，也不会追求每一篇都很完整，

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="搜索 Renff Space 的文章、标签与项目。">
+  <meta name="robots" content="noindex, follow">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#11100e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f2f6f8" media="(prefers-color-scheme: light)">
+  <title>全站搜索 | Renff Space</title>
+
+  <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
+  <link rel="alternate" type="application/rss+xml" title="Renff Space RSS" href="./feed.xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/redesign.css">
+</head>
+
+<body class="site-body search-view" data-site-root="./">
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+  <main class="search-page" id="main-content" data-search-page>
+    <nav class="page-navbar" aria-label="搜索页面导航">
+      <a class="page-brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">RS</span>
+        <span>Renff Space</span>
+      </a>
+
+      <div class="page-nav-actions">
+        <ul class="page-nav-list">
+          <li><a class="page-nav-link" href="./index.html#blog">Blog</a></li>
+          <li><a class="page-nav-link" href="./projects.html">Projects</a></li>
+          <li><a class="page-nav-link" href="./index.html#other">Other</a></li>
+        </ul>
+        <button class="site-search-button" type="button" data-site-search-trigger>
+          <ion-icon name="search-outline"></ion-icon>
+          <span>搜索</span>
+          <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+    </nav>
+
+    <header class="page-heading search-heading">
+      <p class="page-eyebrow">Search / Index</p>
+      <h1 class="article-title">全站搜索</h1>
+      <p class="page-description">同时检索文章正文、标签、摘要和公开项目，结果会保留内容类型与出处。</p>
+    </header>
+
+    <form class="search-page-form" data-search-page-form role="search">
+      <label for="search-page-input">搜索关键词</label>
+      <div class="search-page-control">
+        <input id="search-page-input" type="search" autocomplete="off" data-search-page-input
+          placeholder="例如：Git、Python、学习记录">
+        <button type="submit">
+          <ion-icon name="search-outline"></ion-icon>
+          <span>搜索</span>
+        </button>
+      </div>
+    </form>
+
+    <section class="search-page-results" aria-live="polite">
+      <p class="site-search-empty" data-search-page-empty></p>
+      <ul class="site-search-results" data-search-page-results></ul>
+    </section>
+  </main>
+
+  <script src="./assets/js/site-data.js"></script>
+  <script src="./assets/js/blog-posts.js"></script>
+  <script src="./assets/js/icons.js"></script>
+  <script src="./assets/js/search.js"></script>
+</body>
+
+</html>

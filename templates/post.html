@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{SUMMARY}}">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#11100e">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="{{TITLE}} | Renff Space">
+  <meta property="og:description" content="{{SUMMARY}}">
+  <meta property="og:url" content="{{URL}}">
+  <meta property="og:image" content="{{IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}} | Renff Space">
+  <meta name="twitter:description" content="{{SUMMARY}}">
+  <meta name="twitter:image" content="{{IMAGE}}">
+  <title>{{TITLE}} | Renff Space</title>
+
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/images/profile_photo.png">
+  <link rel="canonical" href="{{URL}}">
+  <link rel="alternate" type="application/rss+xml" title="Renff Space RSS" href="../feed.xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/redesign.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap"
+    rel="stylesheet">
+
+  <script type="application/ld+json">{{STRUCTURED_DATA}}</script>
+</head>
+
+<body class="article-view site-body" data-site-root="../">
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+  <main class="blog-article-page" id="main-content">
+    <nav class="page-navbar article-page-nav" aria-label="文章导航">
+      <a class="page-brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">RS</span>
+        <span>Renff Space</span>
+      </a>
+
+      <div class="page-nav-actions">
+        <ul class="page-nav-list">
+          <li><a class="page-nav-link active" href="../index.html#blog">Blog</a></li>
+          <li><a class="page-nav-link" href="../projects.html">Projects</a></li>
+          <li><a class="page-nav-link" href="../index.html#other">Other</a></li>
+        </ul>
+        <button class="site-search-button" type="button" data-site-search-trigger>
+          <ion-icon name="search-outline"></ion-icon>
+          <span>搜索</span>
+          <kbd>⌘K</kbd>
+        </button>
+      </div>
+    </nav>
+
+    <article class="blog-article-card">
+      <figure class="blog-article-cover"{{COVER_HIDDEN}}>
+        <img src="{{COVER}}" alt="{{COVER_ALT}}" width="1200" height="675">
+      </figure>
+
+      <div class="blog-article-body">
+        <div class="blog-meta">
+          <span class="blog-category">{{CATEGORY}}</span>
+          <span class="dot"></span>
+          <time datetime="{{DATE}}">{{DATE_LABEL}}</time>
+          <span class="dot"></span>
+          <span>{{READING_TIME}}</span>
+        </div>
+
+        <h1 class="blog-article-title">{{TITLE}}</h1>
+        <p class="blog-article-summary">{{SUMMARY}}</p>
+        <ul class="article-tags" aria-label="文章标签">{{TAGS}}</ul>
+        <div class="blog-article">{{CONTENT}}</div>
+      </div>
+    </article>
+
+    <section class="article-related" aria-labelledby="related-title">
+      <div class="article-related-heading">
+        <p class="page-eyebrow">Keep reading</p>
+        <h2 id="related-title">相关文章</h2>
+      </div>
+      <div class="article-related-list">{{RELATED}}</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Renff Space</p>
+    <nav aria-label="页脚导航">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#blog">Blog</a>
+      <a href="../feed.xml">RSS</a>
+    </nav>
+  </footer>
+
+  <script src="../assets/js/site-data.js"></script>
+  <script src="../assets/js/blog-posts.js"></script>
+  <script src="../assets/js/icons.js"></script>
+  <script src="../assets/js/search.js"></script>
+</body>
+
+</html>

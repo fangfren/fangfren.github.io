@@ -5,39 +5,54 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Renff Space 的博客文章。">
+  <meta name="description" content="阅读 Renff Space 的记录文章。">
+  <meta name="robots" content="noindex, follow">
   <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#11151c" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11100e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f2f6f8" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="文章 | Renff Space">
+  <meta property="og:description" content="记录编程学习和生活思考。">
+  <meta property="og:image" content="https://fangfren.github.io/assets/images/home-scenery.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <title>博客文章 | Renff Space</title>
 
   <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
+  <link rel="canonical" href="https://fangfren.github.io/blog.html">
+  <link rel="alternate" type="application/rss+xml" title="Renff Space RSS" href="./feed.xml">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/redesign.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=UnifrakturCook:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap"
     rel="stylesheet">
 </head>
 
-<body class="article-view site-body">
+<body class="article-view site-body" data-site-root="./">
 
   <main class="blog-article-page">
     <nav class="page-navbar article-page-nav" aria-label="文章导航">
-      <a class="page-home-link" href="./index.html#blog">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-        <span>返回博客</span>
+      <a class="page-brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">RS</span>
+        <span>Renff Space</span>
       </a>
 
-      <ul class="page-nav-list">
-        <li><a class="page-nav-link" href="./index.html#home">首页</a></li>
-        <li><a class="page-nav-link active" href="./index.html#blog">Blog</a></li>
-        <li><a class="page-nav-link" href="./index.html#portfolio">Projects</a></li>
-        <li><a class="page-nav-link" href="./index.html#other">Other</a></li>
-      </ul>
+      <div class="page-nav-actions">
+        <ul class="page-nav-list">
+          <li><a class="page-nav-link active" href="./index.html#blog">Blog</a></li>
+          <li><a class="page-nav-link" href="./projects.html">Projects</a></li>
+          <li><a class="page-nav-link" href="./index.html#other">Other</a></li>
+        </ul>
+        <button class="site-search-button" type="button" data-site-search-trigger>
+          <ion-icon name="search-outline"></ion-icon>
+          <span>搜索</span>
+          <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
     </nav>
 
     <section class="blog-article-card" data-article-card>
@@ -56,8 +71,17 @@
 
         <h1 class="blog-article-title" data-article-title></h1>
         <p class="blog-article-summary" data-article-summary></p>
+        <ul class="article-tags" data-article-tags aria-label="文章标签"></ul>
         <div class="blog-article" data-article-content></div>
       </div>
+    </section>
+
+    <section class="article-related" data-article-related hidden aria-labelledby="related-title">
+      <div class="article-related-heading">
+        <p class="page-eyebrow">Keep reading</p>
+        <h2 id="related-title">相关文章</h2>
+      </div>
+      <div class="article-related-list" data-article-related-list></div>
     </section>
 
     <section class="blog-article-not-found" data-article-not-found hidden>
@@ -67,10 +91,11 @@
     </section>
   </main>
 
+  <script src="./assets/js/site-data.js"></script>
   <script src="./assets/js/blog-posts.js"></script>
+  <script src="./assets/js/icons.js"></script>
   <script src="./assets/js/blog-article.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="./assets/js/search.js"></script>
 
 </body>
 

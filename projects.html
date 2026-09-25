@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Renff Space 的公开项目作品集：Python、C、命令行工具与持续学习记录。">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#11100e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f2f6f8" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Projects | Renff Space">
+  <meta property="og:description" content="正在学习、整理和持续改进的公开项目。">
+  <meta property="og:url" content="https://fangfren.github.io/projects.html">
+  <meta property="og:image" content="https://fangfren.github.io/assets/images/home-scenery.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Projects | Renff Space</title>
+
+  <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/images/profile_photo.png">
+  <link rel="canonical" href="https://fangfren.github.io/projects.html">
+  <link rel="alternate" type="application/rss+xml" title="Renff Space RSS" href="./feed.xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/redesign.css">
+</head>
+
+<body class="site-body projects-view" data-site-root="./">
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+  <main class="projects-page" id="main-content" data-project-section>
+    <nav class="page-navbar" aria-label="项目页面导航">
+      <a class="page-brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">RS</span>
+        <span>Renff Space</span>
+      </a>
+
+      <div class="page-nav-actions">
+        <ul class="page-nav-list">
+          <li><a class="page-nav-link" href="./index.html#blog">Blog</a></li>
+          <li><a class="page-nav-link active" href="./projects.html">Projects</a></li>
+          <li><a class="page-nav-link" href="./index.html#other">Other</a></li>
+        </ul>
+        <button class="site-search-button" type="button" data-site-search-trigger>
+          <ion-icon name="search-outline"></ion-icon>
+          <span>搜索</span>
+          <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+    </nav>
+
+    <header class="page-heading projects-heading">
+      <p class="page-eyebrow">Build / Practice</p>
+      <h1 class="article-title">Projects</h1>
+      <p class="page-description">公开项目不是展示完成度，而是记录目标、取舍和持续迭代的轨迹。每个项目都保留仓库、README 与关键练习点。</p>
+    </header>
+
+    <section class="project-stats" aria-label="项目概览">
+      <div>
+        <strong data-project-stat="count">02</strong>
+        <span>Public projects</span>
+      </div>
+      <div>
+        <strong data-project-stat="languages">02</strong>
+        <span>Languages</span>
+      </div>
+      <div>
+        <strong>2026</strong>
+        <span>Still building</span>
+      </div>
+    </section>
+
+    <section class="projects" aria-label="公开项目列表">
+      <div class="projects-toolbar">
+        <div>
+          <p class="projects-breadcrumb">Home <span>/</span> Projects</p>
+          <p class="projects-result-note">按技术方向筛选</p>
+        </div>
+
+        <ul class="filter-list" data-project-filters aria-label="项目分类">
+          <li class="filter-item"><button class="active" type="button" data-project-filter="all">All</button></li>
+          <li class="filter-item"><button type="button" data-project-filter="python">Python</button></li>
+          <li class="filter-item"><button type="button" data-project-filter="c">C</button></li>
+        </ul>
+      </div>
+
+      <ul class="project-list" data-project-list></ul>
+    </section>
+
+    <aside class="projects-note">
+      <ion-icon name="code-slash-outline"></ion-icon>
+      <div>
+        <p>More in progress</p>
+        <h2>新的练习会先进入 GitHub，再整理成项目和文章。</h2>
+      </div>
+      <a href="https://github.com/fangfren" target="_blank" rel="noopener noreferrer">
+        <span>GitHub</span>
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </a>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Renff Space</p>
+    <nav aria-label="页脚导航">
+      <a href="./index.html">Home</a>
+      <a href="./index.html#blog">Blog</a>
+      <a href="./feed.xml">RSS</a>
+    </nav>
+  </footer>
+
+  <script src="./assets/js/site-data.js"></script>
+  <script src="./assets/js/blog-posts.js"></script>
+  <script src="./assets/js/icons.js"></script>
+  <script src="./assets/js/projects.js"></script>
+  <script src="./assets/js/search.js"></script>
+</body>
+
+</html>

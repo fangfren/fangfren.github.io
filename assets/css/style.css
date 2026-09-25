@@ -21,7 +21,7 @@
    * theme colors
    */
 
-  color-scheme: dark;
+  color-scheme: light dark;
 
   --page-bg: hsl(222, 25%, 7%);
   --surface-1: hsl(222, 20%, 11%);
