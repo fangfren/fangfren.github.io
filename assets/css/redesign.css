@@ -1898,9 +1898,15 @@ body.site-body {
     margin-bottom: 30px;
   }
 
-  .content-page .projects-toolbar {
+  .content-page .projects-toolbar,
+  .projects-view .projects-toolbar {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .projects-view .filter-list {
+    justify-content: flex-start;
+    width: 100%;
   }
 
   .other-card-grid {

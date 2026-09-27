@@ -44,5 +44,24 @@ window.RENFF_PROJECTS = [
     repository: 'https://github.com/fangfren/PracticeGit',
     readme: 'https://github.com/fangfren/PracticeGit#readme',
     tags: ['C', 'Git', 'Fundamentals']
+  },
+  {
+    slug: 'zotero-ai-organization',
+    title: 'Zotero AI Organization',
+    kicker: 'JavaScript / Zotero plugin',
+    category: 'javascript',
+    categoryLabel: 'JavaScript',
+    year: '2026',
+    status: '持续维护',
+    role: '个人项目',
+    featured: true,
+    summary: '为 Zotero 增加内嵌 AI 对话，并调用本机 Codex CLI 辅助组织文献与关联说明文档。',
+    description: '一个可直接安装的 Zotero 插件，在条目右侧栏提供 AI 对话，并按文献保存独立的多轮 Codex 会话。',
+    highlights: ['右侧栏内嵌 AI 对话', '每篇文献独立多轮会话', 'README 导入与条目关联'],
+    cover: './assets/images/project-zotero-ai.svg',
+    coverAlt: 'Zotero AI Organization 项目封面',
+    repository: 'https://github.com/fangfren/Zotero-ai-organization',
+    readme: 'https://github.com/fangfren/Zotero-ai-organization#readme',
+    tags: ['JavaScript', 'Zotero', 'Codex CLI', 'AI']
   }
 ];
