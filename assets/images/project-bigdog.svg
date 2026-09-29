@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title desc">
+  <title id="title">BigDog Bark Bark Bark project cover</title>
+  <desc id="desc">A Windows tray tool with a dog paw icon and a Codex completion alert.</desc>
+  <rect width="600" height="450" fill="#17191f"/>
+  <rect x="52" y="54" width="496" height="342" rx="18" fill="#20232b" stroke="#353a47" stroke-width="2"/>
+  <rect x="52" y="54" width="496" height="48" rx="18" fill="#292d37"/>
+  <path d="M52 84h496v18H52z" fill="#292d37"/>
+  <circle cx="82" cy="78" r="6" fill="#ef6b73"/>
+  <circle cx="104" cy="78" r="6" fill="#f2c85b"/>
+  <circle cx="126" cy="78" r="6" fill="#66c88f"/>
+
+  <text x="84" y="139" fill="#aeb3bf" font-family="sans-serif" font-size="18">WINDOWS TRAY / CODEX HOOK</text>
+
+  <rect x="84" y="174" width="288" height="148" rx="14" fill="#272c36" stroke="#3d4554" stroke-width="2"/>
+  <circle cx="132" cy="224" r="18" fill="#f2c85b"/>
+  <circle cx="164" cy="205" r="12" fill="#f2c85b"/>
+  <circle cx="196" cy="205" r="12" fill="#f2c85b"/>
+  <circle cx="222" cy="224" r="16" fill="#f2c85b"/>
+  <path d="M130 250c8-27 77-27 88 0 8 22-10 39-29 39h-30c-19 0-36-17-29-39z" fill="#f2c85b"/>
+  <text x="270" y="221" fill="#edf0f5" font-family="sans-serif" font-size="20" font-weight="600">BigDog</text>
+  <text x="270" y="248" fill="#9aa4b5" font-family="sans-serif" font-size="14">Custom alert ready</text>
+  <path d="M270 276h72" stroke="#66c88f" stroke-width="5" stroke-linecap="round"/>
+
+  <rect x="398" y="174" width="114" height="148" rx="14" fill="#242a34" stroke="#3d4554" stroke-width="2"/>
+  <text x="417" y="205" fill="#8e99aa" font-family="sans-serif" font-size="12">NOW PLAYING</text>
+  <path d="M418 244v-19M432 252v-34M446 242v-13M460 258v-44M474 246v-19M488 252v-29" stroke="#5e91ef" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="455" cy="300" r="6" fill="#66c88f"/>
+
+  <path d="M350 331h170" stroke="#48505e" stroke-width="4" stroke-linecap="round"/>
+  <text x="84" y="366" fill="#7f8998" font-family="monospace" font-size="15">$ codex hook --completed</text>
+  <text x="420" y="366" fill="#66c88f" font-family="monospace" font-size="15">HOOK ACTIVE</text>
+</svg>
