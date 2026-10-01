@@ -8,23 +8,23 @@
  */
 window.RENFF_PROJECTS = [
   {
-    slug: 'bigdog-bark-bark-bark',
-    title: 'BigDog Bark Bark Bark',
-    kicker: 'C# / Windows tray tool',
-    category: 'csharp',
-    categoryLabel: 'C#',
+    slug: 'bigdog-woof-woof',
+    title: 'BigDog Woof Woof',
+    kicker: 'C / Windows shortcut tool',
+    category: 'c',
+    categoryLabel: 'C',
     year: '2026',
     status: '持续维护',
     role: '个人工具',
     featured: true,
-    summary: '一个免安装的 Windows 托盘工具，用自定义提示音提醒 Codex 任务完成，并可一键管理 Stop Hook。',
-    description: '单文件 C# 工具，常驻系统托盘；支持切换提示音、导入音频、开机启动以及安装或移除自己的 Codex Stop Hook。',
-    highlights: ['Codex 完成提示音', '托盘快速切换', 'WAV / MP3 等音频导入'],
+    summary: '一个极轻量的 Windows Codex 完成提示音开关，无托盘、无常驻进程，通过桌面快捷方式快速开关。',
+    description: '原生 C 程序，仅管理自己的 Codex Stop Hook；首次运行会创建桌面快捷方式和 Ctrl+Alt+B 快捷键，空闲资源占用为 0。',
+    highlights: ['无托盘与常驻进程', '桌面快捷方式开关', 'Ctrl+Alt+B 快速切换'],
     cover: './assets/images/project-bigdog.svg',
-    coverAlt: 'BigDog Bark Bark Bark 项目封面',
+    coverAlt: 'BigDog Woof Woof 项目封面',
     repository: 'https://github.com/fangfren/BigDog-Bark-Bark-Bark',
     readme: 'https://github.com/fangfren/BigDog-Bark-Bark-Bark#readme',
-    tags: ['C#', 'Windows', '.NET Framework', 'Codex']
+    tags: ['C', 'Windows', 'Codex', 'Stop Hook']
   },
   {
     slug: 'zotero-ai-organization',

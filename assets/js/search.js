@@ -24,8 +24,8 @@
     return siteRoot + value.replace(/^\.\//, '');
   }
 
-  function getItems() {
-    const postItems = posts.map(function (post) {
+  function getPostItems() {
+    return posts.map(function (post) {
       const tags = Array.isArray(post.tags) ? post.tags : [];
 
       return {
@@ -44,8 +44,10 @@
         ].join(' ')
       };
     });
+  }
 
-    const projectItems = projects.map(function (project) {
+  function getProjectItems() {
+    return projects.map(function (project) {
       const tags = Array.isArray(project.tags) ? project.tags : [];
 
       return {
@@ -67,8 +69,14 @@
         ].join(' ')
       };
     });
+  }
 
-    return postItems.concat(projectItems);
+  function getItems(scope) {
+    if (scope === 'posts') {
+      return getPostItems();
+    }
+
+    return getPostItems().concat(getProjectItems());
   }
 
   function scoreItem(item, terms) {
@@ -101,15 +109,15 @@
     return score;
   }
 
-  function search(query) {
+  function search(query, scope) {
     const normalizedQuery = normalizeText(query).trim();
 
     if (!normalizedQuery) {
-      return getItems();
+      return getItems(scope);
     }
 
     const terms = normalizedQuery.split(/\s+/).filter(Boolean);
-    const results = getItems().map(function (item) {
+    const results = getItems(scope).map(function (item) {
       return {
         item: item,
         score: scoreItem(item, terms)
@@ -158,18 +166,22 @@
     return link;
   }
 
-  function renderResults(container, emptyState, query) {
-    const results = search(query).slice(0, maxResults);
+  function renderResults(container, emptyState, query, scope) {
+    const results = search(query, scope).slice(0, maxResults);
     container.replaceChildren();
 
     if (!query.trim()) {
-      emptyState.textContent = '输入关键词，搜索文章与项目。';
+      emptyState.textContent = scope === 'posts'
+        ? '输入关键词，搜索文章。'
+        : '输入关键词，搜索文章与项目。';
       emptyState.hidden = false;
       return;
     }
 
     if (!results.length) {
-      emptyState.textContent = '没有找到匹配的文章或项目。';
+      emptyState.textContent = scope === 'posts'
+        ? '没有找到匹配的文章。'
+        : '没有找到匹配的文章或项目。';
       emptyState.hidden = false;
       return;
     }
@@ -252,9 +264,15 @@
     triggers.forEach(function (trigger, index) {
       const host = trigger.closest('.home-tools, .page-nav-actions, .blog-section-header') ||
         trigger.parentElement;
+      const scope = trigger.dataset.searchScope === 'posts' ? 'posts' : 'all';
       const panelId = 'site-search-inline-' + index;
       const titleId = 'site-search-title-' + index;
       const panel = document.createElement('div');
+      const panelTitle = scope === 'posts' ? '文章搜索' : '全站搜索';
+      const panelEyebrow = scope === 'posts' ? 'Blog / Search' : 'Search / Index';
+      const placeholder = scope === 'posts'
+        ? '搜索文章标题、标签或摘要...'
+        : '搜索文章、标签或项目...';
 
       host.classList.add('site-search-host');
       panel.className = 'site-search-inline';
@@ -266,13 +284,13 @@
       panel.innerHTML = [
         '<div class="site-search-heading">',
         '  <div>',
-        '    <p>Search / Index</p>',
-        '    <h2 id="' + titleId + '">全站搜索</h2>',
+        '    <p>' + panelEyebrow + '</p>',
+        '    <h2 id="' + titleId + '">' + panelTitle + '</h2>',
         '  </div>',
         '</div>',
         '<label class="site-search-input-wrap">',
-        '  <span class="sr-only">搜索文章和项目</span>',
-        '  <input type="search" data-site-search-input autocomplete="off" placeholder="搜索文章、标签或项目...">',
+        '  <span class="sr-only">' + panelTitle + '</span>',
+        '  <input type="search" data-site-search-input autocomplete="off" placeholder="' + placeholder + '">',
         '</label>',
         '<p class="site-search-status" data-site-search-status aria-live="polite"></p>',
         '<p class="site-search-empty" data-site-search-empty></p>',
@@ -297,8 +315,9 @@
         results: results,
         status: status,
         isOpen: false,
+        scope: scope,
         updateResults: function () {
-          renderResults(results, emptyState, input.value);
+          renderResults(results, emptyState, input.value, scope);
           const count = results.children.length;
           status.textContent = input.value.trim() && count ? '显示 ' + count + ' 条相关结果' : '';
         }

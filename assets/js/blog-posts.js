@@ -8,69 +8,68 @@
  */
 window.RENFF_BLOG_POSTS = [
   {
-    slug: 'start-here',
-    title: '开始记录：这个博客会写些什么',
-    date: '2026-09-22',
-    category: '随笔',
-    tags: ['学习记录', '写作', '长期主义'],
-    readingTime: '2 分钟',
-    summary: '把学习过程中真正做过、踩过坑和想明白的内容整理下来，作为一份可以回看的个人记录。',
-    cover: './assets/images/blog_start_here.webp',
-    coverAlt: '开始记录博客文章的封面',
-    url: './posts/start-here.html',
+    slug: 'bigdog-woof-woof',
+    title: 'BigDog Woof Woof：给 Codex 任务完成加一声提示音',
+    date: '2026-10-01',
+    category: '项目复盘',
+    tags: ['C', 'Windows', 'Codex', '效率工具'],
+    readingTime: '6 分钟',
+    summary: '一个极轻量的 Windows Codex 完成提示音开关，原生 C 实现，无托盘、无常驻进程，只保留一个桌面快捷方式。',
+    cover: './assets/images/project-bigdog.svg',
+    coverAlt: 'BigDog Woof Woof 项目封面',
+    url: './posts/bigdog-woof-woof.html',
     content: `
       <p>
-        这个博客会用来记录我在编程学习中的一些片段。它不是教程合集，也不会追求每一篇都很完整，
-        更希望能把“做过什么、遇到什么问题、后来怎么解决”留下来。
+        BigDog Woof Woof 是一个极轻量的 Windows Codex 完成提示音开关。它的目标很简单：
+        当 Codex 任务完成时，用一声“汪”提醒我回来查看结果。
       </p>
-      <h3>准备记录的内容</h3>
+      <p>
+        这个想法来自一个很实际的问题。任务运行期间，我通常会切去处理别的事情，
+        但代码任务结束的时间和时长并不固定。如果一直盯着窗口，效率很低；如果完全不管，
+        又可能错过下一轮需要确认的步骤。
+      </p>
+      <h3>为什么不做成托盘常驻</h3>
+      <p>
+        这类工具只在任务完成时短暂工作，没有必要长期占用后台资源。v2.0.1 已经移除托盘和
+        常驻进程，主程序改为原生 C 实现，空闲常驻内存为 0，只在 Stop Hook 触发时运行。
+      </p>
+      <h3>目前能做什么</h3>
       <ul>
-        <li>Python 和 C 语言练习中的思路与复盘。</li>
-        <li>Git、GitHub 以及日常开发工具的使用记录。</li>
-        <li>小型项目从想法到可运行版本的整理过程。</li>
-        <li>学习方法和阶段总结，方便以后的自己回看。</li>
+        <li>原生 C 程序，无托盘、无常驻进程。</li>
+        <li>首次运行自动安装或修复 Codex Stop Hook。</li>
+        <li>创建一个名为“Codex 提示音”的桌面快捷方式作为开关。</li>
+        <li>支持双击快捷方式或按 Ctrl+Alt+B 快速切换。</li>
+        <li>提供 Codex Stop Hook 的安装和移除入口。</li>
+        <li>使用外置 MP3，替换文件即可更换提示音。</li>
       </ul>
-      <h3>文章会怎么组织</h3>
+      <h3>快捷方式和 Stop Hook</h3>
       <p>
-        每篇内容尽量围绕一个具体主题展开。能复现的操作会附上命令或代码，遇到过的错误会说明原因，
-        暂时没有解决的问题也会明确标注出来。
+        首次运行 BigDogBark.exe 后，程序会复制文件到 %LOCALAPPDATA%\BigDogBark，
+        写入自己的 Stop Hook，并在桌面创建快捷方式。Codex 完成任务后，Hook 调用程序播放 MP3，
+        处理完成后立即退出，不会留下后台进程。
       </p>
-      <blockquote>
-        先记录，再整理；先完成一个可运行的小版本，再逐步改进。
-      </blockquote>
-    `
-  },
-
-  {
-    slug: 'start-practice',
-    title: '第一次：这个博客是技术尝试',
-    date: '2026-09-22',
-    category: '随笔',
-    tags: ['技术成长', '复盘', '记录'],
-    readingTime: '1 分钟',
-    summary: '把过去和当下真正做过、踩过坑、想明白，或者百思不得其解的内容整理下来，作为一份可以回看的个人记录。',
-    cover: './assets/images/blog_practice_1.webp',
-    coverAlt: '第一次技术尝试文章的封面',
-    url: './posts/start-practice.html',
-    content: `
       <p>
-        这个博客会用来记录我在编程学习中的一些片段。它不是教程合集，也不会追求每一篇都很完整，
-        更希望能把“做过什么、遇到什么问题、后来怎么解决”留下来。
+        快捷方式名称会显示当前状态：Codex 提示音 - 开启或 Codex 提示音 - 关闭。
+        关闭自定义提示音后，Codex 默认通知行为会保留。
       </p>
-      <h3>准备记录的内容</h3>
-      <ul>
-        <li>过去遇到的困难。</li>
-        <li>现在烦心的事情。</li>
-        <li>突然想明白的道理。</li>
-        <li>我认为意义重大的经历。</li>
-      </ul>
-      <h3>文章会怎么组织</h3>
+      <h3>资源占用</h3>
       <p>
-        每篇内容尽量围绕一个具体主题展开，用准确、完整的文字把想法表达清楚。
+        主程序约 25 KB，外置 MP3 约 71 KB。Hook 进程通常在 0.1–0.3 秒内退出，
+        音频播放子进程约 3 秒后退出，空闲常驻内存为 0。
       </p>
-      <blockquote>
-        先记录，再整理；先完成一个可运行的小版本，再逐步改进。
-      </blockquote>
+      <h3>安装和卸载</h3>
+      <p>
+        下载 BigDogBark-portable.zip 后解压，双击 BigDogBark.exe，无需安装器。
+        首次运行完成后，重启 Codex 并在 /hooks 中信任一次
+        BigDogBark.exe --hook 即可。卸载时可以运行 --uninstall，
+        程序只会移除自己的 Hook，并保留其他 Hook 和 Computer Use 配置。
+      </p>
+      <p>
+        项目源码和使用说明见
+        <a href="https://github.com/fangfren/BigDog-Bark-Bark-Bark" target="_blank" rel="noopener noreferrer">
+          GitHub 仓库
+        </a>。
+      </p>
     `
   }
 ];

@@ -281,8 +281,19 @@ const posts = context.window.RENFF_BLOG_POSTS
   });
 const template = await fs.readFile(templatePath, 'utf8');
 const postsDirectory = path.join(projectRoot, 'posts');
+const expectedPostFiles = new Set(posts.map(function (post) {
+  return post.slug + '.html';
+}));
 
 await fs.mkdir(postsDirectory, { recursive: true });
+
+const existingPostFiles = await fs.readdir(postsDirectory, { withFileTypes: true });
+
+for (const entry of existingPostFiles) {
+  if (entry.isFile() && entry.name.endsWith('.html') && !expectedPostFiles.has(entry.name)) {
+    await fs.unlink(path.join(postsDirectory, entry.name));
+  }
+}
 
 for (const post of posts) {
   await fs.writeFile(

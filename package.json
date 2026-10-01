@@ -1,0 +1,9 @@
+{
+  "name": "fangfren-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-content.mjs",
+    "build:content": "node scripts/generate-content.mjs"
+  }
+}

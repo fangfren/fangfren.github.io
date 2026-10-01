@@ -83,7 +83,7 @@
       <div class="home-layout">
         <header class="home-topbar">
           <a class="home-brand" href="#home" data-nav-link data-nav-target="home" aria-label="返回首页">
-            <span class="brand-mark" aria-hidden="true">RS</span>
+            <span class="brand-mark" aria-hidden="true">RF</span>
             <span>Renff Space</span>
           </a>
 
@@ -156,9 +156,9 @@
               </a>
             </li>
             <li>
-              <a class="hero-social-link" href="./feed.xml" aria-label="订阅 RSS">
+              <button class="hero-social-link" type="button" data-rss-open aria-label="获取 RSS 订阅链接">
                 <ion-icon name="rss-outline"></ion-icon>
-              </a>
+              </button>
             </li>
             <li>
               <button class="hero-social-link" type="button" data-map-open aria-label="查看哈尔滨地图">
@@ -182,12 +182,13 @@
       <div class="page-shell">
         <nav class="page-navbar" aria-label="博客页面导航">
           <a class="page-brand" href="#home" data-nav-link data-nav-target="home">
-            <span class="brand-mark" aria-hidden="true">RS</span>
+            <span class="brand-mark" aria-hidden="true">RF</span>
             <span>Renff Space</span>
           </a>
 
           <div class="page-nav-actions">
             <ul class="page-nav-list">
+              <li><a class="page-nav-link" href="#home" data-nav-link data-nav-target="home">Home</a></li>
               <li><a class="page-nav-link active" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
               <li><a class="page-nav-link" href="./projects.html">Projects</a></li>
               <li><a class="page-nav-link" href="#other" data-nav-link data-nav-target="other">Other</a></li>
@@ -216,9 +217,9 @@
               </button>
             </h3>
 
-            <button class="blog-search-trigger" type="button" data-site-search-trigger>
+            <button class="blog-search-trigger" type="button" data-site-search-trigger data-search-scope="posts">
               <ion-icon name="search-outline"></ion-icon>
-              <span>全站搜索</span>
+              <span>文章搜索</span>
               <ion-icon class="search-toggle-icon" name="chevron-down" aria-hidden="true"></ion-icon>
             </button>
           </div>
@@ -246,12 +247,13 @@
       <div class="page-shell">
         <nav class="page-navbar" aria-label="其他页面导航">
           <a class="page-brand" href="#home" data-nav-link data-nav-target="home">
-            <span class="brand-mark" aria-hidden="true">RS</span>
+            <span class="brand-mark" aria-hidden="true">RF</span>
             <span>Renff Space</span>
           </a>
 
           <div class="page-nav-actions">
             <ul class="page-nav-list">
+              <li><a class="page-nav-link" href="#home" data-nav-link data-nav-target="home">Home</a></li>
               <li><a class="page-nav-link" href="#blog" data-nav-link data-nav-target="blog">Blog</a></li>
               <li><a class="page-nav-link" href="./projects.html">Projects</a></li>
               <li><a class="page-nav-link active" href="#other" data-nav-link data-nav-target="other">Other</a></li>
@@ -371,10 +373,10 @@
               </button>
             </div>
             <div class="other-card-actions">
-              <a class="other-card-link" href="./feed.xml" target="_blank" rel="noopener">
-                <span>打开订阅源</span>
-                <ion-icon name="external-link-outline"></ion-icon>
-              </a>
+              <button class="other-card-link" type="button" data-rss-open>
+                <span>获取订阅链接</span>
+                <ion-icon name="link-outline"></ion-icon>
+              </button>
               <a class="other-card-link" href="#blog" data-nav-link data-nav-target="blog">
                 <span>浏览全部文章</span>
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -429,6 +431,31 @@
       </div>
 
       <div class="map-modal-canvas" data-map aria-label="哈尔滨市交互地图"></div>
+    </div>
+  </div>
+
+  <div class="rss-modal" data-rss-modal aria-hidden="true">
+    <div class="rss-modal-overlay" data-rss-modal-close></div>
+
+    <div class="rss-modal-panel" role="dialog" aria-modal="true" aria-labelledby="rss-modal-title">
+      <button class="rss-modal-close" type="button" data-rss-modal-close aria-label="关闭 RSS 订阅窗口">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="rss-modal-icon" aria-hidden="true">
+        <ion-icon name="rss-outline"></ion-icon>
+      </div>
+
+      <h2 class="rss-modal-title" id="rss-modal-title">RSS 订阅</h2>
+      <p class="rss-modal-text">复制下面的订阅地址，粘贴到 Feedly、Inoreader 或其他 RSS 阅读器中。</p>
+
+      <div class="rss-modal-url">
+        <code>https://fangfren.github.io/feed.xml</code>
+        <button class="other-copy-button" type="button" data-copy-value="https://fangfren.github.io/feed.xml">
+          <ion-icon name="copy-outline"></ion-icon>
+          <span>复制地址</span>
+        </button>
+      </div>
     </div>
   </div>
 

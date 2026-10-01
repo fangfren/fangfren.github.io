@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title desc">
-  <title id="title">BigDog Bark Bark Bark project cover</title>
-  <desc id="desc">A Windows tray tool with a dog paw icon and a Codex completion alert.</desc>
+  <title id="title">BigDog Woof Woof project cover</title>
+  <desc id="desc">A tiny native Windows Codex alert tool with a dog paw icon.</desc>
   <rect width="600" height="450" fill="#17191f"/>
   <rect x="52" y="54" width="496" height="342" rx="18" fill="#20232b" stroke="#353a47" stroke-width="2"/>
   <rect x="52" y="54" width="496" height="48" rx="18" fill="#292d37"/>
@@ -9,7 +9,7 @@
   <circle cx="104" cy="78" r="6" fill="#f2c85b"/>
   <circle cx="126" cy="78" r="6" fill="#66c88f"/>
 
-  <text x="84" y="139" fill="#aeb3bf" font-family="sans-serif" font-size="18">WINDOWS TRAY / CODEX HOOK</text>
+  <text x="84" y="139" fill="#aeb3bf" font-family="sans-serif" font-size="18">NATIVE C / CODEX HOOK</text>
 
   <rect x="84" y="174" width="288" height="148" rx="14" fill="#272c36" stroke="#3d4554" stroke-width="2"/>
   <circle cx="132" cy="224" r="18" fill="#f2c85b"/>
@@ -17,8 +17,8 @@
   <circle cx="196" cy="205" r="12" fill="#f2c85b"/>
   <circle cx="222" cy="224" r="16" fill="#f2c85b"/>
   <path d="M130 250c8-27 77-27 88 0 8 22-10 39-29 39h-30c-19 0-36-17-29-39z" fill="#f2c85b"/>
-  <text x="270" y="221" fill="#edf0f5" font-family="sans-serif" font-size="20" font-weight="600">BigDog</text>
-  <text x="270" y="248" fill="#9aa4b5" font-family="sans-serif" font-size="14">Custom alert ready</text>
+  <text x="246" y="221" fill="#edf0f5" font-family="sans-serif" font-size="18" font-weight="600">BigDog Woof Woof</text>
+  <text x="270" y="248" fill="#9aa4b5" font-family="sans-serif" font-size="14">Desktop shortcut ready</text>
   <path d="M270 276h72" stroke="#66c88f" stroke-width="5" stroke-linecap="round"/>
 
   <rect x="398" y="174" width="114" height="148" rx="14" fill="#242a34" stroke="#3d4554" stroke-width="2"/>

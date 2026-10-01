@@ -116,6 +116,55 @@ if (avatarFlip) {
   });
 }
 
+const rssModal = document.querySelector('[data-rss-modal]');
+const rssOpenButtons = document.querySelectorAll('[data-rss-open]');
+const rssCloseButtons = document.querySelectorAll('[data-rss-modal-close]');
+const rssCloseButton = document.querySelector('.rss-modal-close');
+let lastRssFocusedElement = null;
+
+function openRssModal() {
+  if (!rssModal) {
+    return;
+  }
+
+  lastRssFocusedElement = document.activeElement;
+  rssModal.classList.add('active');
+  rssModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('rss-modal-open');
+
+  if (rssCloseButton) {
+    rssCloseButton.focus();
+  }
+}
+
+function closeRssModal() {
+  if (!rssModal) {
+    return;
+  }
+
+  rssModal.classList.remove('active');
+  rssModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('rss-modal-open');
+
+  if (lastRssFocusedElement && document.contains(lastRssFocusedElement)) {
+    lastRssFocusedElement.focus();
+  }
+}
+
+rssOpenButtons.forEach(function (button) {
+  button.addEventListener('click', openRssModal);
+});
+
+rssCloseButtons.forEach(function (button) {
+  button.addEventListener('click', closeRssModal);
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape' && rssModal && rssModal.classList.contains('active')) {
+    closeRssModal();
+  }
+});
+
 const sidebar = document.querySelector('[data-sidebar]');
 const sidebarButton = document.querySelector('[data-sidebar-btn]');
 
