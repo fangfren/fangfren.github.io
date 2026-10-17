@@ -2,15 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fangfren.github.io/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://fangfren.github.io/projects.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://fangfren.github.io/search.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://fangfren.github.io/posts/fmcw-ranging-derivation.html</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://fangfren.github.io/posts/bigdog-woof-woof.html</loc>

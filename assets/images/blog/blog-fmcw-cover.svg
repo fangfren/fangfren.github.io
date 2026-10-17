@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">FMCW ranging and photoelectric signal derivation cover</title>
+  <desc id="desc">A technical illustration with chirp waveforms, photodetector blocks, phase wrapping and unwrapping curves.</desc>
+  <rect width="1200" height="675" fill="#15181e"/>
+  <rect x="54" y="54" width="1092" height="567" rx="28" fill="#1d222b" stroke="#343c4b" stroke-width="2"/>
+
+  <text x="92" y="124" fill="#edf2f8" font-family="sans-serif" font-size="34" font-weight="600">FMCW RANGING</text>
+  <text x="92" y="160" fill="#8d98aa" font-family="monospace" font-size="18">chirp → interference → phase unwrap → distance</text>
+
+  <path d="M92 218h420" stroke="#4a5668" stroke-width="2"/>
+  <path d="M92 350h420" stroke="#4a5668" stroke-width="2"/>
+  <path d="M92 482h420" stroke="#4a5668" stroke-width="2"/>
+
+  <path d="M92 302L188 238L284 302L380 238L476 302L512 274" fill="none" stroke="#f0c766" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="92" y="528" fill="#f0c766" font-family="monospace" font-size="16">transmit chirp</text>
+
+  <path d="M92 416L188 352L284 416L380 352L476 416L512 388" fill="none" stroke="#7fb8ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+  <text x="92" y="548" fill="#7fb8ff" font-family="monospace" font-size="16">delayed echo</text>
+
+  <path d="M92 474c28-44 56 44 84 0s56 44 84 0s56 44 84 0s56 44 84 0" fill="none" stroke="#67d5a8" stroke-width="5" stroke-linecap="round"/>
+  <text x="92" y="590" fill="#67d5a8" font-family="monospace" font-size="16">beat signal</text>
+
+  <rect x="596" y="174" width="212" height="212" rx="22" fill="#242b36" stroke="#4a5668" stroke-width="2"/>
+  <circle cx="702" cy="280" r="70" fill="none" stroke="#f0c766" stroke-width="4"/>
+  <path d="M702 280l55-34" stroke="#f0c766" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="702" cy="280" r="9" fill="#f0c766"/>
+  <text x="632" y="426" fill="#aeb8c8" font-family="monospace" font-size="16">analytic signal</text>
+
+  <rect x="850" y="174" width="258" height="212" rx="22" fill="#202732" stroke="#4a5668" stroke-width="2"/>
+  <path d="M882 322c26-108 52 106 78-4s52 104 78-2s48 92 60 8" fill="none" stroke="#ef6b73" stroke-width="5" stroke-linecap="round"/>
+  <path d="M882 286c22-46 44 46 66 0s44 46 66 0s44 46 66 0" fill="none" stroke="#67d5a8" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  <text x="914" y="426" fill="#aeb8c8" font-family="monospace" font-size="16">wrap / unwrap</text>
+
+  <path d="M556 394h282" stroke="#4a5668" stroke-width="3"/>
+  <path d="M838 394l-18-10v20l18-10Z" fill="#4a5668"/>
+
+  <path d="M620 504h488" stroke="#4a5668" stroke-width="2"/>
+  <text x="620" y="558" fill="#edf2f8" font-family="monospace" font-size="30">L = c f_b / 2 f′</text>
+  <text x="620" y="596" fill="#8d98aa" font-family="sans-serif" font-size="16">phase → frequency → range</text>
+</svg>
