@@ -21,10 +21,11 @@
   <meta name="twitter:image" content="{{IMAGE}}">
   <title>{{TITLE}} | Renff Space</title>
 
-  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../assets/images/profile_photo.png">
+  <link rel="icon" href="../assets/images/profile/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/images/profile/profile_photo.png">
   <link rel="canonical" href="{{URL}}">
   <link rel="alternate" type="application/rss+xml" title="Renff Space RSS" href="../feed.xml">
+  <link rel="stylesheet" href="../assets/vendor/katex/katex.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/redesign.css">
 
@@ -54,11 +55,10 @@
           <li><a class="page-nav-link" href="../projects.html">Projects</a></li>
           <li><a class="page-nav-link" href="../index.html#other">Other</a></li>
         </ul>
-        <button class="site-search-button" type="button" data-site-search-trigger>
-          <ion-icon name="search-outline"></ion-icon>
-          <span>搜索</span>
-          <kbd>⌘K</kbd>
-        </button>
+        <a class="article-back-button" href="../index.html#blog">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span>返回博客</span>
+        </a>
       </div>
     </nav>
 
@@ -104,7 +104,6 @@
   <script src="../assets/js/site-data.js"></script>
   <script src="../assets/js/blog-posts.js"></script>
   <script src="../assets/js/icons.js"></script>
-  <script src="../assets/js/search.js"></script>
 </body>
 
 </html>

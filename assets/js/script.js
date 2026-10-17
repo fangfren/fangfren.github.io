@@ -218,7 +218,7 @@ function createBlogCard(post) {
 
   const link = document.createElement('a');
   link.className = 'blog-post-link';
-  link.href = post.url || './blog.html?slug=' + encodeURIComponent(post.slug);
+  link.href = post.url || './posts/' + encodeURIComponent(post.slug) + '.html';
   link.dataset.blogSlug = post.slug;
   link.dataset.blogSearch = [
     post.title,

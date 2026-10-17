@@ -122,6 +122,10 @@ body.site-body {
   height: 1em;
 }
 
+.katex span {
+  display: inline;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1245,6 +1249,54 @@ body.site-body {
   margin: -16px 0 28px;
 }
 
+.blog-article .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0 8px;
+}
+
+.blog-article {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.blog-article > * {
+  max-width: 100%;
+}
+
+.blog-article img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 12px;
+}
+
+.blog-article table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.blog-article :is(th, td) {
+  border: 1px solid var(--border-color);
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-article th {
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.blog-article .katex {
+  font-size: 1.06em;
+}
+
 .article-related {
   width: min(920px, 100%);
   margin: 28px auto 0;
@@ -1807,6 +1859,37 @@ body.site-body {
   margin: 0 auto 20px;
 }
 
+.article-back-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 13px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-1),
+    border-color var(--transition-1),
+    color var(--transition-1);
+}
+
+.article-back-button:hover,
+.article-back-button:focus-visible {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+.article-back-button ion-icon {
+  font-size: 17px;
+}
+
 .blog-article-card {
   display: block;
   padding: 0;
@@ -1877,11 +1960,16 @@ body.site-body {
   }
 
   .page-nav-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
     width: 100%;
+    min-width: 0;
   }
 
   .page-nav-list {
     width: 100%;
+    min-width: 0;
     justify-content: space-between;
   }
 
