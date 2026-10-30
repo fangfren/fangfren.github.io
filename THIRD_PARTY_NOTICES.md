@@ -4,7 +4,7 @@ This repository does not declare a license for the whole project.
 
 ## Homepage background image
 
-`assets/images/home/home-scenery.webp`
+`src/assets/images/home/home-scenery.webp`
 
 - Title: Karst peaks mist and colorful clouds at sunrise seen from Mount Nam Xay in Vang Vieng Laos
 - Author: Basile Morin
