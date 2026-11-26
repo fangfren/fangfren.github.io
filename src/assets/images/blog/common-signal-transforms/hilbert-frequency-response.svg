@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="470" viewBox="0 0 1120 470">
+<rect width="1120" height="470" fill="#ffffff"/>
+<text x="560" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#18324a">希尔伯特变换与解析信号的频域作用</text>
+<g font-family="Arial,sans-serif">
+<text x="280" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="#18324a">希尔伯特变换频率响应 H(Ω)</text>
+<path d="M70 315 H500 M280 120 V355" stroke="#455563" stroke-width="1.5"/>
+<path d="M95 165 H280" stroke="#356b9a" stroke-width="5"/><path d="M280 285 H465" stroke="#a64d4d" stroke-width="5"/>
+<text x="178" y="145" text-anchor="middle" font-size="17" fill="#356b9a">+j</text>
+<text x="372" y="265" text-anchor="middle" font-size="17" fill="#a64d4d">−j</text>
+<text x="280" y="380" text-anchor="middle" font-size="14" fill="#40566b">Ω = 0</text>
+<text x="490" y="338" text-anchor="end" font-size="14" fill="#40566b">Ω</text>
+<text x="280" y="112" text-anchor="middle" font-size="14" fill="#40566b">H(Ω)</text>
+<text x="178" y="405" text-anchor="middle" font-size="14" fill="#40566b">Ω &lt; 0：相移 +90°</text>
+<text x="382" y="405" text-anchor="middle" font-size="14" fill="#40566b">Ω &gt; 0：相移 −90°</text>
+<text x="820" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="#18324a">解析信号频谱 Xₐ(Ω)</text>
+<path d="M600 315 H1050 M820 120 V355" stroke="#455563" stroke-width="1.5"/>
+<rect x="625" y="315" width="180" height="0" fill="#ffffff"/>
+<path d="M630 315 V315 H820" stroke="#a64d4d" stroke-width="0"/>
+<path d="M820 315 V155 H1030" stroke="#3b7a57" stroke-width="5" fill="none"/>
+<path d="M820 315 V315" stroke="#455563" stroke-width="1.5"/>
+<path d="M820 315 V155" stroke="#3b7a57" stroke-width="5"/>
+<text x="910" y="140" text-anchor="middle" font-size="17" fill="#3b7a57">2X(Ω)，Ω &gt; 0</text>
+<text x="715" y="290" text-anchor="middle" font-size="15" fill="#a64d4d">负频率为 0</text>
+<text x="820" y="380" text-anchor="middle" font-size="14" fill="#40566b">Ω = 0：保留 DC 分量</text>
+<text x="1030" y="338" text-anchor="end" font-size="14" fill="#40566b">Ω</text>
+<text x="820" y="112" text-anchor="middle" font-size="14" fill="#40566b">幅度示意</text>
+</g>
+<text x="560" y="448" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#526777">采用傅里叶变换核 e⁻ʲΩᵗ：H(Ω)=−j·sgn(Ω)；解析信号去除负频率并将正频率幅度加倍。</text>
+</svg>

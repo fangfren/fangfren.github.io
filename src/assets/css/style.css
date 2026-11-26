@@ -146,7 +146,7 @@ a { text-decoration: none; }
 
 li { list-style: none; }
 
-img, ion-icon, a, button, time, span { display: block; }
+img, ion-icon, a, button, time, span:where(:not(.blog-article *)) { display: block; }
 
 button {
   font: inherit;

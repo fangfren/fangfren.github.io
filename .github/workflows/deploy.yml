@@ -33,7 +33,19 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      - name: Check for Word articles
+        id: articles
+        run: |
+          node --input-type=commonjs <<'NODE' >> "$GITHUB_OUTPUT"
+          const { articles } = require('./content/articles.json');
+          const needsPandoc = articles.some(({ file, draft }) =>
+            draft !== true && typeof file === 'string' && file.trim().toLowerCase().endsWith('.docx')
+          );
+          console.log('needs_pandoc=' + needsPandoc);
+          NODE
+
       - name: Install pandoc
+        if: steps.articles.outputs.needs_pandoc == 'true'
         run: |
           curl -fsSL -o /tmp/pandoc.tar.gz https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-amd64.tar.gz
           sudo tar -xzf /tmp/pandoc.tar.gz -C /usr/local --strip-components=1

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="760" viewBox="0 0 1300 760">
+<rect width="1300" height="760" fill="#ffffff"/>
+<text x="650" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#18324a">8 点基 2 DIT FFT：按位反转输入与三级蝶形计算</text>
+<text x="650" y="72" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#40566b">每个蝶形统一执行：上输出 = A + W·B；下输出 = A − W·B</text>
+<g font-family="Arial,sans-serif" fill="#18324a">
+<rect x="38" y="108" width="1224" height="92" rx="12" fill="#f5f8fb" stroke="#9eb1c1"/>
+<text x="62" y="139" font-size="17" font-weight="700">原始输入</text>
+<text x="62" y="166" font-size="14" fill="#40566b">x[0] … x[7]</text>
+<text x="250" y="139" font-size="17" font-weight="700">3 位二进制位反转</text>
+<text x="250" y="166" font-size="14" fill="#40566b">000,100,010,110,001,101,011,111</text>
+<text x="710" y="139" font-size="17" font-weight="700">重排后的输入顺序</text>
+<text x="710" y="174" font-size="23" font-weight="700" fill="#315f83">x[0], x[4], x[2], x[6], x[1], x[5], x[3], x[7]</text>
+</g>
+<g font-family="Arial,sans-serif">
+<rect x="38" y="225" width="390" height="450" rx="14" fill="#eef7f2" stroke="#4b8b6a" stroke-width="2"/>
+<rect x="455" y="225" width="390" height="450" rx="14" fill="#eef3fb" stroke="#4b7296" stroke-width="2"/>
+<rect x="872" y="225" width="390" height="450" rx="14" fill="#fff4e8" stroke="#b87928" stroke-width="2"/>
+<text x="233" y="262" text-anchor="middle" font-size="21" font-weight="700" fill="#245c3c">第 1 级：2 点蝶形</text>
+<text x="650" y="262" text-anchor="middle" font-size="21" font-weight="700" fill="#315b80">第 2 级：4 点蝶形</text>
+<text x="1067" y="262" text-anchor="middle" font-size="21" font-weight="700" fill="#925d1d">第 3 级：8 点蝶形</text>
+<text x="233" y="288" text-anchor="middle" font-size="13" fill="#40566b">4 个蝶形；旋转因子均为 W₂⁰ = 1</text>
+<text x="650" y="288" text-anchor="middle" font-size="13" fill="#40566b">4 个蝶形；旋转因子为 W₄⁰=1、W₄¹=−j</text>
+<text x="1067" y="288" text-anchor="middle" font-size="13" fill="#40566b">4 个蝶形；旋转因子为 W₈ᵏ，k=0,1,2,3</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="14" fill="#18324a">
+<!-- stage 1 boxes -->
+<rect x="60" y="315" width="345" height="70" rx="9" fill="#ffffff" stroke="#91b6a0"/><text x="76" y="338" font-weight="700">(x[0], x[4])</text><text x="76" y="358" font-size="13">a₀ = x[0] + x[4]</text><text x="76" y="376" font-size="13">a₁ = x[0] − x[4]</text><rect x="60" y="397" width="345" height="70" rx="9" fill="#ffffff" stroke="#91b6a0"/><text x="76" y="420" font-weight="700">(x[2], x[6])</text><text x="76" y="440" font-size="13">a₂ = x[2] + x[6]</text><text x="76" y="458" font-size="13">a₃ = x[2] − x[6]</text><rect x="60" y="479" width="345" height="70" rx="9" fill="#ffffff" stroke="#91b6a0"/><text x="76" y="502" font-weight="700">(x[1], x[5])</text><text x="76" y="522" font-size="13">a₄ = x[1] + x[5]</text><text x="76" y="540" font-size="13">a₅ = x[1] − x[5]</text><rect x="60" y="561" width="345" height="70" rx="9" fill="#ffffff" stroke="#91b6a0"/><text x="76" y="584" font-weight="700">(x[3], x[7])</text><text x="76" y="604" font-size="13">a₆ = x[3] + x[7]</text><text x="76" y="622" font-size="13">a₇ = x[3] − x[7]</text>
+<!-- stage 2 boxes -->
+<rect x="477" y="315" width="345" height="70" rx="9" fill="#ffffff" stroke="#91a9c1"/><text x="493" y="338" font-weight="700">(a₀, a₂), W₄⁰=1</text><text x="493" y="358" font-size="13">b₀ = a₀ + a₂</text><text x="493" y="376" font-size="13">b₂ = a₀ − a₂</text><rect x="477" y="397" width="345" height="70" rx="9" fill="#ffffff" stroke="#91a9c1"/><text x="493" y="420" font-weight="700">(a₁, a₃), W₄¹=−j</text><text x="493" y="440" font-size="13">b₁ = a₁ − j a₃</text><text x="493" y="458" font-size="13">b₃ = a₁ + j a₃</text><rect x="477" y="479" width="345" height="70" rx="9" fill="#ffffff" stroke="#91a9c1"/><text x="493" y="502" font-weight="700">(a₄, a₆), W₄⁰=1</text><text x="493" y="522" font-size="13">b₄ = a₄ + a₆</text><text x="493" y="540" font-size="13">b₆ = a₄ − a₆</text><rect x="477" y="561" width="345" height="70" rx="9" fill="#ffffff" stroke="#91a9c1"/><text x="493" y="584" font-weight="700">(a₅, a₇), W₄¹=−j</text><text x="493" y="604" font-size="13">b₅ = a₅ − j a₇</text><text x="493" y="622" font-size="13">b₇ = a₅ + j a₇</text>
+<!-- stage 3 boxes -->
+<rect x="894" y="315" width="345" height="70" rx="9" fill="#ffffff" stroke="#d3ae7a"/><text x="910" y="338" font-weight="700">(b₀, b₄), W₈⁰=1</text><text x="910" y="358" font-size="13">X[0] = b₀ + b₄</text><text x="910" y="376" font-size="13">X[4] = b₀ − b₄</text><rect x="894" y="397" width="345" height="70" rx="9" fill="#ffffff" stroke="#d3ae7a"/><text x="910" y="420" font-weight="700">(b₁, b₅), W₈¹=e⁻ʲπ/₄</text><text x="910" y="440" font-size="13">X[1] = b₁ + W₈¹b₅</text><text x="910" y="458" font-size="13">X[5] = b₁ − W₈¹b₅</text><rect x="894" y="479" width="345" height="70" rx="9" fill="#ffffff" stroke="#d3ae7a"/><text x="910" y="502" font-weight="700">(b₂, b₆), W₈²=−j</text><text x="910" y="522" font-size="13">X[2] = b₂ − j b₆</text><text x="910" y="540" font-size="13">X[6] = b₂ + j b₆</text><rect x="894" y="561" width="345" height="70" rx="9" fill="#ffffff" stroke="#d3ae7a"/><text x="910" y="584" font-weight="700">(b₃, b₇), W₈³=e⁻ʲ³π/₄</text><text x="910" y="604" font-size="13">X[3] = b₃ + W₈³b₇</text><text x="910" y="622" font-size="13">X[7] = b₃ − W₈³b₇</text>
+</g>
+<g font-family="Arial,sans-serif" fill="#40566b" text-anchor="middle">
+<text x="650" y="710" font-size="15">三级计算后得到 X[0] 至 X[7]。每一级均有 4 个蝶形，总数 4 × 3 = 12。</text>
+<text x="650" y="735" font-size="13">这里展示的是 radix-2 DIT 的分级计算表；不同 FFT 实现的中间数组排列可能不同，但 DFT 结果一致。</text>
+</g>
+</svg>

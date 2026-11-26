@@ -6,10 +6,10 @@ fangfren 的个人主页：个人简介、博客文章与公开项目入口。
 
 ## 发布文章
 
-文章源文件放在 `content/sources/`，所有文章登记在 `content/articles.json`。
+Markdown 博文放在 `content/posts/`，Word 或 PDF 稿件放在 `content/sources/`。所有文章都登记在 `content/articles.json`。
 发布一篇新文章只需要两步，全部可以在 GitHub 网页上完成：
 
-1. 打开仓库的 **Add file → Upload files**，把 `.docx` 或 `.pdf` 上传到 `content/sources/`。
+1. 打开对应目录，选择 **Add file → Upload files** 上传稿件。Markdown 的配图可以按文章归档到 `src/assets/images/blog/<slug>/`，在正文和封面字段中使用 `./assets/images/blog/<slug>/文件名`。
 2. 编辑 `content/articles.json`，在 `articles` 数组里加一行。
 
 ```json
@@ -67,7 +67,7 @@ Word 中另存为 PNG/SVG 再插入。如果某篇 Word 的转换结果不理想
 ├── .github/workflows/deploy.yml   # 构建 + 部署到 GitHub Pages
 ├── content/
 │   ├── articles.json              # 文章清单（发布时只改这里）
-│   ├── posts/                     # 原有 Markdown 文章
+│   ├── posts/                     # Markdown 博文
 │   └── sources/                   # 上传的 .docx / .pdf
 ├── scripts/
 │   ├── generate-content.mjs       # 生成 posts、RSS、sitemap、搜索数据

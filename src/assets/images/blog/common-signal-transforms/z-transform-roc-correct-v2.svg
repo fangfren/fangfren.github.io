@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+<rect width="1200" height="470" fill="#ffffff"/>
+<text x="600" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#18324a">Z 变换收敛域（ROC）的三种典型形式</text>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<g transform="translate(205,220)">
+<rect x="-140" y="-140" width="280" height="280" fill="#dcefe2"/>
+<circle r="105" fill="#ffffff" stroke="#b54b4b" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M-145 0 H145 M0 -145 V145" stroke="#4a5661" stroke-width="1.5"/>
+<circle cx="105" cy="0" r="7" fill="#b32626" stroke="#ffffff" stroke-width="1.5"/>
+<circle r="3" fill="#4a5661"/>
+<text x="105" y="-14" font-size="13" fill="#a42e2e">极点</text>
+<text x="0" y="-12" font-size="16" fill="#2d8050" font-weight="700">ROC</text>
+<text x="0" y="160" font-size="19" fill="#18324a" font-weight="700">右边序列</text>
+<text x="0" y="183" font-size="14" fill="#40566b">|z| &gt; r₀：圆外区域</text>
+<text x="0" y="204" font-size="13" fill="#40566b">边界圆不属于 ROC</text>
+</g>
+<g transform="translate(600,220)">
+<rect x="-140" y="-140" width="280" height="280" fill="#ffffff"/>
+<circle r="105" fill="#dcecfb" stroke="#b54b4b" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M-145 0 H145 M0 -145 V145" stroke="#4a5661" stroke-width="1.5"/>
+<circle cx="105" cy="0" r="7" fill="#b32626" stroke="#ffffff" stroke-width="1.5"/>
+<circle r="3" fill="#4a5661"/>
+<text x="105" y="-14" font-size="13" fill="#a42e2e">极点</text>
+<text x="0" y="15" font-size="16" fill="#356b9a" font-weight="700">ROC</text>
+<text x="0" y="160" font-size="19" fill="#18324a" font-weight="700">左边序列</text>
+<text x="0" y="183" font-size="14" fill="#40566b">|z| &lt; r₀：圆内区域</text>
+<text x="0" y="204" font-size="13" fill="#40566b">边界圆不属于 ROC</text>
+</g>
+<g transform="translate(995,220)">
+<rect x="-145" y="-145" width="290" height="290" fill="#ffffff"/>
+<circle r="125" fill="#f7e8ce" stroke="#b54b4b" stroke-width="2" stroke-dasharray="7 5"/>
+<circle r="62" fill="#ffffff" stroke="#b54b4b" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M-155 0 H155 M0 -155 V155" stroke="#4a5661" stroke-width="1.5"/>
+<circle cx="62" cy="0" r="7" fill="#b32626" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="125" cy="0" r="7" fill="#b32626" stroke="#ffffff" stroke-width="1.5"/>
+<circle r="3" fill="#4a5661"/>
+<text x="62" y="-14" font-size="12" fill="#a42e2e">极点</text>
+<text x="125" y="-14" font-size="12" fill="#a42e2e">极点</text>
+<text x="0" y="-5" font-size="15" fill="#96651f" font-weight="700">ROC</text>
+<text x="0" y="160" font-size="19" fill="#18324a" font-weight="700">双边序列</text>
+<text x="0" y="183" font-size="14" fill="#40566b">r₁ &lt; |z| &lt; r₂：环形区域</text>
+<text x="0" y="204" font-size="13" fill="#40566b">两个边界圆均不属于 ROC</text>
+</g>
+</g>
+<text x="600" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#526777">阴影表示收敛域；红色虚线为边界圆，红点表示极点。极点和边界圆均不属于 ROC。</text>
+</svg>

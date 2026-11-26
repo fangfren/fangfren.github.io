@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+<rect width="1100" height="620" fill="#ffffff"/>
+<text x="550" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#18324a">信号变换之间的逻辑关系</text>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<rect x="375" y="78" width="350" height="68" rx="12" fill="#eaf3fb" stroke="#416987" stroke-width="2"/>
+<text x="550" y="108" font-size="20" font-weight="700" fill="#18324a">连续时间信号 x(t)</text><text x="550" y="130" font-size="14" fill="#40566b">周期信号与非周期信号</text>
+<rect x="110" y="218" width="330" height="76" rx="12" fill="#eef4fb" stroke="#416987" stroke-width="2"/>
+<text x="275" y="249" font-size="19" font-weight="700" fill="#18324a">傅里叶级数 / 傅里叶变换</text><text x="275" y="273" font-size="14" fill="#40566b">连续时间频率分解</text>
+<rect x="660" y="218" width="330" height="76" rx="12" fill="#fff3e6" stroke="#b87928" stroke-width="2"/>
+<text x="825" y="249" font-size="19" font-weight="700" fill="#18324a">拉普拉斯变换</text><text x="825" y="273" font-size="14" fill="#40566b">复频率 s 平面与收敛域</text>
+<path d="M470 146 L300 216 M630 146 L800 216" stroke="#526777" stroke-width="2" fill="none"/>
+<path d="M309 205 L299 217 L316 214 M791 214 L801 217 L791 205" stroke="#526777" stroke-width="2" fill="none"/>
+<rect x="375" y="355" width="350" height="70" rx="12" fill="#eaf7ef" stroke="#3b7a57" stroke-width="2"/>
+<text x="550" y="385" font-size="20" font-weight="700" fill="#18324a">采样：x[n] = x(nTₛ)</text><text x="550" y="408" font-size="14" fill="#40566b">连续时间到离散时间</text>
+<path d="M275 294 L440 353 M825 294 L660 353" stroke="#526777" stroke-width="2" fill="none"/>
+<path d="M429 340 L441 354 L423 351 M677 351 L659 354 L670 340" stroke="#526777" stroke-width="2" fill="none"/>
+<rect x="70" y="490" width="270" height="78" rx="12" fill="#f2edfa" stroke="#7754a6" stroke-width="2"/>
+<text x="205" y="521" font-size="19" font-weight="700" fill="#18324a">DTFT</text><text x="205" y="546" font-size="14" fill="#40566b">连续且 2π 周期的频谱</text>
+<rect x="415" y="490" width="270" height="78" rx="12" fill="#fff3e6" stroke="#b87928" stroke-width="2"/>
+<text x="550" y="521" font-size="19" font-weight="700" fill="#18324a">DFT</text><text x="550" y="546" font-size="14" fill="#40566b">有限记录的 N 个频率点</text>
+<rect x="760" y="490" width="270" height="78" rx="12" fill="#fceeee" stroke="#a64d4d" stroke-width="2"/>
+<text x="895" y="521" font-size="19" font-weight="700" fill="#18324a">Z 变换</text><text x="895" y="546" font-size="14" fill="#40566b">z 平面与收敛域 ROC</text>
+<path d="M480 425 L205 488 M550 425 V488 M620 425 L895 488" stroke="#526777" stroke-width="2" fill="none"/>
+<path d="M218 476 L204 490 L224 486 M543 478 L550 491 L557 478 M876 486 L896 490 L883 476" stroke="#526777" stroke-width="2" fill="none"/>
+<text x="550" y="600" font-size="14" fill="#40566b">FFT 是快速计算 DFT 的算法；希尔伯特变换构造正交分量与解析信号</text>
+</g></svg>
